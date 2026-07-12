@@ -1,0 +1,30 @@
+{
+  "eyebrow": "Galeria",
+  "title": "Galeria Jonë",
+  "subtitle": "Një koleksion pamjesh nga projektet tona, ku çdo detaj rrëfen historinë e një hapësire të transformuar.",
+  "viewAll": "Shiko galerinë e plotë",
+  "filters": {
+    "all": "Të gjitha",
+    "gardens": "Kopshte",
+    "yards": "Oborre",
+    "pools": "Pishina",
+    "terraces": "Terasa",
+    "paving": "Shtrime"
+  },
+  "empty": {
+    "title": "Ende pa foto në këtë kategori",
+    "message": "Provoni një kategori tjetër për të parë më shumë nga puna jonë.",
+    "retry": "Shiko të Gjitha"
+  },
+  "error": {
+    "title": "Galeria nuk mund të ngarkohet",
+    "message": "Diçka shkoi keq gjatë ngarkimit të fotove. Ju lutemi provoni përsëri.",
+    "retry": "Provo Përsëri"
+  },
+  "lightbox": {
+    "close": "Mbyll galerinë",
+    "next": "Foto tjetër",
+    "previous": "Foto e mëparshme",
+    "of": "nga"
+  }
+}

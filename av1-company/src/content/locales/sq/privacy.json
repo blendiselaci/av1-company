@@ -1,0 +1,38 @@
+{
+  "eyebrow": "Ligjore",
+  "title": "Politika e Privatësisë",
+  "lastUpdated": "Përditësuar së fundmi: Janar 2026",
+  "intro": "AV1-Company (\"ne\", \"neve\", \"jonë\") respekton privatësinë tuaj dhe angazhohet të mbrojë të dhënat personale që ndani me ne. Kjo politikë shpjegon çfarë informacioni mbledhim, si e përdorim atë dhe cilat janë zgjedhjet tuaja.",
+  "sections": [
+    {
+      "id": "information-we-collect",
+      "heading": "Informacioni që Mbledhim",
+      "body": "Kur dërgoni formularin tonë të kontaktit, mbledhim informacionin që na jepni drejtpërdrejt: emrin dhe mbiemrin tuaj, adresën e email-it, numrin e telefonit, shërbimin që ju intereson, dhe çdo mesazh që na dërgoni. Nuk mbledhim informacion pagese përmes kësaj faqeje interneti."
+    },
+    {
+      "id": "how-we-use-it",
+      "heading": "Si e Përdorim Informacionin Tuaj",
+      "body": "Ne përdorim informacionin që dërgoni vetëm për t'iu përgjigjur kërkesës suaj, për të përgatitur një ofertë dhe për të komunikuar me ju rreth projektit tuaj. Nuk shesim, japim me qira apo tregtojmë informacionin tuaj personal me palë të treta."
+    },
+    {
+      "id": "data-retention",
+      "heading": "Ruajtja e të Dhënave",
+      "body": "Ne ruajmë dërgimet e formularit të kontaktit vetëm për aq kohë sa është e nevojshme për t'iu përgjigjur kërkesës suaj dhe për të mbajtur një regjistër të komunikimeve me klientët, pas së cilës ato fshihen në mënyrë të sigurt."
+    },
+    {
+      "id": "cookies",
+      "heading": "Cookie-t dhe Ruajtja Lokale",
+      "body": "Kjo faqe interneti përdor ruajtjen lokale të shfletuesit tuaj për të kujtuar preferencat tuaja të gjuhës dhe temës. Ne nuk përdorim cookie gjurmimi apo reklamimi."
+    },
+    {
+      "id": "your-rights",
+      "heading": "Të Drejtat Tuaja",
+      "body": "Ju keni të drejtë të kërkoni akses, korrigjim ose fshirje të çdo të dhëne personale që mbajmë për ju. Për të ushtruar këto të drejta, na kontaktoni duke përdorur detajet më poshtë."
+    },
+    {
+      "id": "contact",
+      "heading": "Na Kontaktoni",
+      "body": "Nëse keni pyetje rreth kësaj politike privatësie ose si i trajtojmë të dhënat tuaja, ju lutemi na kontaktoni në info@av1-company.al ose përmes faqes sonë të kontaktit."
+    }
+  ]
+}

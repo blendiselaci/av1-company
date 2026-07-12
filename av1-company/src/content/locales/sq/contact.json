@@ -1,0 +1,50 @@
+{
+  "eyebrow": "Kontakt",
+  "title": "Na Kontaktoni",
+  "subtitle": "Keni një projekt në mendje? Na tregoni për të dhe do t'ju kontaktojmë me një ofertë falas, pa asnjë detyrim.",
+  "info": {
+    "title": "Le të Flasim për Projektin Tuaj",
+    "description": "Na kontaktoni me telefon, email ose përmes formularit më poshtë — ekipi ynë përgjigjet zakonisht brenda 24 orësh me hapat e mëtejshëm dhe një vlerësim falas.",
+    "cards": [
+      { "id": "phone", "label": "Telefon", "value": "+355 69 123 4567", "href": "tel:+355691234567" },
+      { "id": "email", "label": "Email", "value": "info@av1-company.al", "href": "mailto:info@av1-company.al" },
+      { "id": "location", "label": "Vendndodhja", "value": "Rruga e Kavajës, Tiranë 1001, Shqipëri" },
+      { "id": "hours", "label": "Orari i Punës", "value": "Hën – Shtu: 08:00 – 18:00" }
+    ]
+  },
+  "form": {
+    "firstName": "Emri",
+    "lastName": "Mbiemri",
+    "email": "Email",
+    "phone": "Telefon",
+    "service": "Shërbimi",
+    "servicePlaceholder": "Zgjidh një shërbim",
+    "services": [
+      "Dizajn Kopshti",
+      "Shtrime dhe Punime të Jashtme",
+      "Pishina dhe Ambiente Relaksi",
+      "Terraca dhe Struktura",
+      "Mirëmbajtje Gjelbërimi",
+      "Tjetër"
+    ],
+    "message": "Mesazhi",
+    "messagePlaceholder": "Na tregoni për projektin tuaj...",
+    "privacy": "Pranoj politikën e privatësisë",
+    "submit": "Kërko Ofertë Falas",
+    "submitting": "Duke dërguar...",
+    "successTitle": "Faleminderit!",
+    "successMessage": "Kërkesa juaj u pranua. Do t'ju kontaktojmë brenda 24 orësh.",
+    "sendAnother": "Dërgo një mesazh tjetër",
+    "errors": {
+      "required": "Ky fushë është e detyrueshme",
+      "email": "Vendos një adresë email të vlefshme",
+      "privacy": "Duhet të pranoni politikën e privatësisë për të vazhduar",
+      "submit": "Diçka shkoi keq gjatë dërgimit të mesazhit. Ju lutemi provoni përsëri."
+    }
+  },
+  "map": {
+    "addressLabel": "Zyra Jonë",
+    "address": "Rruga e Kavajës, Tiranë 1001, Shqipëri",
+    "button": "Hap në Google Maps"
+  }
+}

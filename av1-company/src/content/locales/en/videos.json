@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Video Gallery",
+  "title": "Our Projects on Video",
+  "subtitle": "Experience our projects through video tours, where movement and light reveal every detail of our work.",
+  "viewAll": "View All Videos",
+  "close": "Close video",
+  "mute": "Mute",
+  "unmute": "Unmute",
+  "categories": {
+    "gardens": "Gardens",
+    "yards": "Yards",
+    "pools": "Pools",
+    "terraces": "Terraces",
+    "paving": "Paving"
+  },
+  "empty": {
+    "title": "No videos yet",
+    "message": "Check back soon — new video tours are added regularly.",
+    "retry": "Refresh"
+  },
+  "error": {
+    "title": "Unable to load videos",
+    "message": "Something went wrong while loading videos. Please try again.",
+    "retry": "Try Again"
+  }
+}

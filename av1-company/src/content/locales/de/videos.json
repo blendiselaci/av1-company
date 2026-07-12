@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Video-Galerie",
+  "title": "Unsere Projekte im Video",
+  "subtitle": "Erleben Sie unsere Projekte in Video-Touren, in denen Bewegung und Licht jedes Detail unserer Arbeit offenbaren.",
+  "viewAll": "Alle Videos Ansehen",
+  "close": "Video schließen",
+  "mute": "Stumm schalten",
+  "unmute": "Ton einschalten",
+  "categories": {
+    "gardens": "Gärten",
+    "yards": "Höfe",
+    "pools": "Pools",
+    "terraces": "Terrassen",
+    "paving": "Pflasterung"
+  },
+  "empty": {
+    "title": "Noch keine Videos",
+    "message": "Schauen Sie bald wieder vorbei — neue Video-Touren werden regelmäßig hinzugefügt.",
+    "retry": "Aktualisieren"
+  },
+  "error": {
+    "title": "Videos konnten nicht geladen werden",
+    "message": "Beim Laden der Videos ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut Versuchen"
+  }
+}

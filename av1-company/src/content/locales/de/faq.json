@@ -1,0 +1,14 @@
+{
+  "eyebrow": "FAQ",
+  "title": "Häufig Gestellte Fragen",
+  "subtitle": "Antworten auf die Fragen, die wir am häufigsten von Kunden hören, die ein Projekt mit uns planen.",
+  "empty": {
+    "title": "Noch keine Fragen",
+    "message": "Schauen Sie bald wieder vorbei — wir ergänzen laufend Antworten auf häufige Fragen."
+  },
+  "error": {
+    "title": "FAQs konnten nicht geladen werden",
+    "message": "Beim Laden der häufig gestellten Fragen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut Versuchen"
+  }
+}

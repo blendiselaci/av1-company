@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Transformimet",
+  "title": "Transformimet Tona",
+  "subtitle": "Shihni si hapësirat e vjetra të jashtme kthehen në ambiente moderne, funksionale dhe elegante — një dëshmi e vërtetë e punës sonë.",
+  "beforeLabel": "Para",
+  "afterLabel": "Pas",
+  "viewAll": "Shiko të gjitha transformimet",
+  "prev": "Transformimi i mëparshëm",
+  "next": "Transformimi tjetër",
+  "detailLabels": {
+    "projectName": "Emri i Projektit",
+    "location": "Vendndodhja",
+    "workCompleted": "Puna e Kryer",
+    "completionTime": "Koha e Përfundimit"
+  },
+  "empty": {
+    "title": "Ende pa transformime",
+    "message": "Kontrolloni së shpejti — projekte të reja para/pas shtohen rregullisht.",
+    "retry": "Rifresko"
+  },
+  "error": {
+    "title": "Transformimet nuk mund të ngarkohen",
+    "message": "Diçka shkoi keq gjatë ngarkimit të transformimeve. Ju lutemi provoni përsëri.",
+    "retry": "Provo Përsëri"
+  }
+}

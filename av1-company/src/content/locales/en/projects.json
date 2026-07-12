@@ -1,0 +1,25 @@
+{
+  "eyebrow": "Portfolio",
+  "title": "Our Projects",
+  "subtitle": "A selection of our most recent work, where every detail reflects our passion for premium outdoor design.",
+  "viewProject": "View Project",
+  "viewAll": "View All Projects",
+  "filters": {
+    "all": "All",
+    "gardens": "Gardens",
+    "yards": "Yards",
+    "pools": "Pools",
+    "terraces": "Terraces",
+    "paving": "Paving"
+  },
+  "empty": {
+    "title": "No projects in this category yet",
+    "message": "Try selecting a different category to see more of our work.",
+    "retry": "View All"
+  },
+  "error": {
+    "title": "Unable to load projects",
+    "message": "Something went wrong while loading projects. Please try again.",
+    "retry": "Try Again"
+  }
+}

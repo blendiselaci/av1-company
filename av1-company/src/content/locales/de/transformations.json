@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Transformationen",
+  "title": "Unsere Transformationen",
+  "subtitle": "Erleben Sie, wie in die Jahre gekommene Außenbereiche zu modernen, funktionalen und eleganten Umgebungen werden — der beste Beweis für unsere Handwerkskunst.",
+  "beforeLabel": "Vorher",
+  "afterLabel": "Nachher",
+  "viewAll": "Alle Transformationen Ansehen",
+  "prev": "Vorherige Transformation",
+  "next": "Nächste Transformation",
+  "detailLabels": {
+    "projectName": "Projektname",
+    "location": "Standort",
+    "workCompleted": "Durchgeführte Arbeiten",
+    "completionTime": "Fertigstellungszeit"
+  },
+  "empty": {
+    "title": "Noch keine Transformationen",
+    "message": "Schauen Sie bald wieder vorbei — neue Vorher-Nachher-Projekte werden regelmäßig hinzugefügt.",
+    "retry": "Aktualisieren"
+  },
+  "error": {
+    "title": "Transformationen konnten nicht geladen werden",
+    "message": "Beim Laden der Transformationen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut Versuchen"
+  }
+}

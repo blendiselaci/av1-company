@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Pyetje",
+  "title": "Pyetjet Më të Shpeshta",
+  "subtitle": "Përgjigje për pyetjet që dëgjojmë më shpesh nga klientët që planifikojnë një projekt me ne.",
+  "empty": {
+    "title": "Ende pa pyetje",
+    "message": "Kthehuni së shpejti — po shtojmë përgjigje për pyetjet më të shpeshta."
+  },
+  "error": {
+    "title": "Pyetjet nuk mund të ngarkohen",
+    "message": "Diçka shkoi keq gjatë ngarkimit të pyetjeve. Ju lutemi provoni përsëri.",
+    "retry": "Provo Përsëri"
+  }
+}

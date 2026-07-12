@@ -1,0 +1,27 @@
+{
+  "eyebrow": "Referenzen",
+  "title": "Was Unsere Kunden Sagen",
+  "subtitle": "Wir sind stolz darauf, Außenräume zu gestalten, die unsere Kunden wirklich lieben.",
+  "ratingLabel": "{rating} von 5 Sternen",
+  "prev": "Vorheriges Testimonial",
+  "next": "Nächstes Testimonial",
+  "summary": {
+    "rating": "4.9",
+    "basedOn": "Basierend auf über 120 zufriedenen Kunden",
+    "stats": [
+      { "value": 120, "suffix": "+", "label": "Abgeschlossene Projekte" },
+      { "value": 250, "suffix": "+", "label": "Zufriedene Kunden" },
+      { "value": 15, "suffix": "+", "label": "Jahre Erfahrung" },
+      { "value": 18, "suffix": "+", "label": "Teammitglieder" }
+    ]
+  },
+  "empty": {
+    "title": "Noch keine Referenzen",
+    "message": "Schauen Sie bald wieder vorbei, um zu erfahren, was unsere Kunden sagen."
+  },
+  "error": {
+    "title": "Referenzen konnten nicht geladen werden",
+    "message": "Beim Laden der Kundenbewertungen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut Versuchen"
+  }
+}

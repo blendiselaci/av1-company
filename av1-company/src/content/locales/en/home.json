@@ -1,0 +1,37 @@
+{
+  "about": {
+    "eyebrow": "About Us",
+    "title": "We create outdoor spaces that stand the test of time",
+    "paragraphs": [
+      "At AV1-Company, we believe every outdoor space has the potential to become a work of art. With years of experience in premium landscape design and construction, we transform gardens, yards and outdoor environments into elegant spaces that combine function with aesthetics.",
+      "Every project begins with a vision and ends with details refined to the highest standard — from material selection to final execution. Our team brings together expertise in landscape architecture, skilled craftsmanship and a genuine passion for nature, to create spaces that last."
+    ],
+    "cta": "Discover More"
+  },
+  "stats": {
+    "items": [
+      { "value": 120, "suffix": "+", "label": "Completed Projects" },
+      { "value": 98, "suffix": "%", "label": "Satisfied Clients" },
+      { "value": 15, "suffix": "+", "label": "Years of Experience" },
+      { "value": 5000, "suffix": "+", "label": "m² of Transformed Space" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Our Services",
+    "title": "What We Offer",
+    "subtitle": "From concept to completion, we offer full-service solutions to transform every outdoor space.",
+    "viewAll": "View All Services",
+    "cta": "Learn More",
+    "error": {
+      "title": "Unable to load services",
+      "message": "Something went wrong while loading our services. Please try again.",
+      "retry": "Try Again"
+    }
+  },
+  "cta": {
+    "title": "Ready to Transform Your Outdoor Space?",
+    "subtitle": "Let's create something beautiful together.",
+    "primaryCta": "Get Free Quote",
+    "secondaryCta": "View Our Projects"
+  }
+}

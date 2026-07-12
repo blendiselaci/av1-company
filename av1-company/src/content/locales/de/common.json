@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Start",
+    "about": "Über Uns",
+    "services": "Leistungen",
+    "projects": "Projekte",
+    "transformations": "Transformationen",
+    "gallery": "Galerie",
+    "video": "Video",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Wir verwandeln Außenbereiche in zeitlose Schönheit.",
+    "rights": "Alle Rechte vorbehalten.",
+    "privacyLink": "Datenschutzerklärung"
+  },
+  "header": {
+    "ctaContact": "Kontakt",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "toggleTheme": "Farbthema wechseln",
+    "chooseLanguage": "Sprache wählen",
+    "skipToContent": "Zum Inhalt springen",
+    "scrollToTop": "Nach oben scrollen"
+  },
+  "hero": {
+    "eyebrow": "Transforming Outdoor Spaces Into Timeless Beauty",
+    "headline": "Wir verwandeln Außenbereiche in zeitlose Schönheit.",
+    "subtitle": "Wir gestalten hochwertige Landschaften, in denen Architektur auf Natur trifft — Gärten, Außenwohnräume und Umgebungen, die den Wert und Charakter jeder Immobilie steigern.",
+    "primaryCta": "Projekte ansehen",
+    "secondaryCta": "Kontaktieren Sie uns"
+  },
+  "notFound": {
+    "title": "Seite Nicht Gefunden",
+    "message": "Die gesuchte Seite konnte leider nicht gefunden werden. Sie wurde möglicherweise verschoben oder existiert nicht mehr.",
+    "backHome": "Zur Startseite",
+    "contactUs": "Kontaktieren Sie Uns"
+  },
+  "whatsapp": {
+    "label": "Kontaktieren Sie uns direkt über WhatsApp",
+    "message": "Hallo AV1 Company, ich interessiere mich für Ihre Leistungen."
+  }
+}

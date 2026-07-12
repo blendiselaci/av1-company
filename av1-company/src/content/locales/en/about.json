@@ -1,0 +1,50 @@
+{
+  "intro": {
+    "eyebrow": "About AV1-Company",
+    "title": "Crafting Outdoor Spaces With Purpose and Precision",
+    "lead": "AV1-Company is a premium landscaping and outdoor design studio based in Tirana, Albania. For over 15 years, we've helped homeowners and businesses across the country turn ordinary outdoor spaces into lasting works of art — combining thoughtful design, skilled craftsmanship and premium materials in every project we take on."
+  },
+  "story": {
+    "eyebrow": "Our Story",
+    "title": "How We Got Here",
+    "paragraphs": [
+      "AV1-Company began with a simple belief: that the spaces around a home deserve as much care and intention as the home itself. What started as a small team of landscape enthusiasts in Tirana has grown into one of Albania's most trusted names in premium outdoor design — without ever losing sight of the craftsmanship that got us here.",
+      "Over the years, we've completed more than a hundred projects across the country, from intimate garden refreshes to large-scale terrace and pool builds. Each one has taught us something new about materials, climate and the way people actually live in their outdoor spaces — lessons we carry into every project that follows."
+    ]
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To design and build outdoor spaces that elevate everyday life — blending premium materials, skilled craftsmanship and thoughtful design into landscapes that feel as good to live in as they look."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "To be Albania's most trusted name in premium landscaping — recognized for the quality of our work, the integrity of our process and the lasting relationships we build with every client we serve."
+  },
+  "values": {
+    "eyebrow": "What Drives Us",
+    "title": "Our Values",
+    "subtitle": "The principles that guide every project, from the first sketch to the final walkthrough.",
+    "items": [
+      {
+        "id": "quality",
+        "title": "Quality Craftsmanship",
+        "description": "We hold every detail to the same premium standard, from material selection to final finish."
+      },
+      {
+        "id": "integrity",
+        "title": "Integrity",
+        "description": "Honest pricing, clear timelines and transparent communication from quote to completion."
+      },
+      {
+        "id": "innovation",
+        "title": "Innovation",
+        "description": "We stay current with design trends and techniques to bring fresh ideas to every space."
+      },
+      {
+        "id": "sustainability",
+        "title": "Sustainability",
+        "description": "We choose durable, responsibly sourced materials that stand the test of time."
+      }
+    ]
+  }
+}

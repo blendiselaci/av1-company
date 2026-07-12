@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Ballina",
+    "about": "Rreth Nesh",
+    "services": "Shërbimet",
+    "projects": "Projektet",
+    "transformations": "Transformimet",
+    "gallery": "Galeria",
+    "video": "Video",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Transformojmë hapësirat e jashtme në bukuri të përjetshme.",
+    "rights": "Të gjitha të drejtat e rezervuara.",
+    "privacyLink": "Politika e Privatësisë"
+  },
+  "header": {
+    "ctaContact": "Kontaktoni",
+    "openMenu": "Hap menynë",
+    "closeMenu": "Mbyll menynë",
+    "toggleTheme": "Ndrysho temën e ngjyrave",
+    "chooseLanguage": "Zgjidh gjuhën",
+    "skipToContent": "Kalo te përmbajtja",
+    "scrollToTop": "Kthehu lart"
+  },
+  "hero": {
+    "eyebrow": "Transforming Outdoor Spaces Into Timeless Beauty",
+    "headline": "Transformojmë hapësirat e jashtme në bukuri të përjetshme.",
+    "subtitle": "Krijojmë peizazhe premium ku arkitektura takon natyrën — kopshte, hapësira relaksi dhe ambiente të jashtme që rrisin vlerën dhe karakterin e çdo prone.",
+    "primaryCta": "Shiko Projektet",
+    "secondaryCta": "Na Kontaktoni"
+  },
+  "notFound": {
+    "title": "Faqja Nuk u Gjet",
+    "message": "Na vjen keq, nuk mundëm ta gjejmë faqen që kërkoni. Mund të jetë zhvendosur ose nuk ekziston më.",
+    "backHome": "Kthehu te Ballina",
+    "contactUs": "Na Kontaktoni"
+  },
+  "whatsapp": {
+    "label": "Na kontaktoni direkt në WhatsApp",
+    "message": "Pershendetje AV1 Company, jam i interesuar per sherbimet tuaja."
+  }
+}

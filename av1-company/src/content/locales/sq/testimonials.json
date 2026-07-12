@@ -1,0 +1,27 @@
+{
+  "eyebrow": "Dëshmi",
+  "title": "Çfarë Thonë Klientët Tanë",
+  "subtitle": "Krenohemi që krijojmë hapësira të jashtme që klientët tanë vërtet i duan.",
+  "ratingLabel": "{rating} nga 5 yje",
+  "prev": "Dëshmia e mëparshme",
+  "next": "Dëshmia tjetër",
+  "summary": {
+    "rating": "4.9",
+    "basedOn": "Bazuar në mbi 120 klientë të kënaqur",
+    "stats": [
+      { "value": 120, "suffix": "+", "label": "Projekte të Realizuara" },
+      { "value": 250, "suffix": "+", "label": "Klientë të Kënaqur" },
+      { "value": 15, "suffix": "+", "label": "Vite Eksperiencë" },
+      { "value": 18, "suffix": "+", "label": "Anëtarë Ekipi" }
+    ]
+  },
+  "empty": {
+    "title": "Ende pa dëshmi",
+    "message": "Kthehuni së shpejti për të parë çfarë thonë klientët tanë."
+  },
+  "error": {
+    "title": "Dëshmitë nuk mund të ngarkohen",
+    "message": "Diçka shkoi keq gjatë ngarkimit të dëshmive të klientëve. Ju lutemi provoni përsëri.",
+    "retry": "Provo Përsëri"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Warum Uns Wählen",
+  "items": [
+    {
+      "id": "experience",
+      "title": "Professionelle Erfahrung",
+      "description": "Jahrelange Erfahrung in der Gestaltung und dem Bau hochwertiger Außenbereiche."
+    },
+    {
+      "id": "custom-design",
+      "title": "Individuelle Projekte",
+      "description": "Jedes Projekt wird von Grund auf neu erstellt, abgestimmt auf Ihre Vision und Ihren Raum."
+    },
+    {
+      "id": "materials",
+      "title": "Hochwertige Materialien",
+      "description": "Wir verwenden ausschließlich Premium-Materialien, ausgewählt für Langlebigkeit und Ästhetik."
+    },
+    {
+      "id": "attention-to-detail",
+      "title": "Liebe zum Detail",
+      "description": "Vom Konzept bis zur Fertigstellung wird jedes Detail mit größter Sorgfalt behandelt."
+    }
+  ]
+}

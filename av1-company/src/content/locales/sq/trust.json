@@ -1,0 +1,25 @@
+{
+  "title": "Pse të na Zgjidhni",
+  "items": [
+    {
+      "id": "experience",
+      "title": "Eksperiencë Profesionale",
+      "description": "Vite përvojë në dizajnin dhe ndërtimin e hapësirave premium të jashtme."
+    },
+    {
+      "id": "custom-design",
+      "title": "Projekte të Personalizuara",
+      "description": "Çdo projekt krijohet nga e para, i përshtatur me vizionin dhe hapësirën tuaj."
+    },
+    {
+      "id": "materials",
+      "title": "Materiale Cilësore",
+      "description": "Përdorim vetëm materiale premium, të zgjedhura për qëndrueshmëri dhe estetikë."
+    },
+    {
+      "id": "attention-to-detail",
+      "title": "Përkushtim në Detaje",
+      "description": "Nga koncepti te finalizimi, çdo detaj trajtohet me kujdes ekstrem."
+    }
+  ]
+}

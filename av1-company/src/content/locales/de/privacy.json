@@ -1,0 +1,38 @@
+{
+  "eyebrow": "Rechtliches",
+  "title": "Datenschutzerklärung",
+  "lastUpdated": "Zuletzt aktualisiert: Januar 2026",
+  "intro": "AV1-Company („wir“, „uns“, „unser“) respektiert Ihre Privatsphäre und verpflichtet sich, die personenbezogenen Daten, die Sie mit uns teilen, zu schützen. Diese Richtlinie erklärt, welche Informationen wir sammeln, wie wir sie verwenden, und welche Wahlmöglichkeiten Sie haben.",
+  "sections": [
+    {
+      "id": "information-we-collect",
+      "heading": "Informationen, die wir sammeln",
+      "body": "Wenn Sie unser Kontaktformular ausfüllen, erfassen wir die von Ihnen direkt bereitgestellten Informationen: Ihren Vor- und Nachnamen, Ihre E-Mail-Adresse, Telefonnummer, die gewünschte Leistung sowie jede Nachricht, die Sie uns senden. Über diese Website erfassen wir keine Zahlungsinformationen."
+    },
+    {
+      "id": "how-we-use-it",
+      "heading": "Wie wir Ihre Informationen verwenden",
+      "body": "Wir verwenden die von Ihnen übermittelten Informationen ausschließlich, um auf Ihre Anfrage zu reagieren, ein Angebot zu erstellen und mit Ihnen über Ihr Projekt zu kommunizieren. Wir verkaufen, vermieten oder handeln nicht mit Ihren personenbezogenen Daten an Dritte."
+    },
+    {
+      "id": "data-retention",
+      "heading": "Datenspeicherung",
+      "body": "Wir speichern Kontaktformular-Übermittlungen nur so lange, wie es notwendig ist, um auf Ihre Anfrage zu reagieren und Aufzeichnungen der Kundenkommunikation zu führen; danach werden sie sicher gelöscht."
+    },
+    {
+      "id": "cookies",
+      "heading": "Cookies & Lokaler Speicher",
+      "body": "Diese Website verwendet den lokalen Speicher Ihres Browsers, um Ihre Sprach- und Themeneinstellungen zu merken. Wir verwenden keine Tracking- oder Werbe-Cookies."
+    },
+    {
+      "id": "your-rights",
+      "heading": "Ihre Rechte",
+      "body": "Sie haben das Recht, Zugang zu, Berichtigung von oder Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen. Um diese Rechte auszuüben, kontaktieren Sie uns bitte über die untenstehenden Angaben."
+    },
+    {
+      "id": "contact",
+      "heading": "Kontaktieren Sie Uns",
+      "body": "Wenn Sie Fragen zu dieser Datenschutzerklärung oder zum Umgang mit Ihren Daten haben, wenden Sie sich bitte an info@av1-company.al oder über unsere Kontaktseite."
+    }
+  ]
+}

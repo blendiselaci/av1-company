@@ -1,0 +1,25 @@
+{
+  "eyebrow": "Portofoli",
+  "title": "Projektet Tona",
+  "subtitle": "Një përzgjedhje e projekteve tona më të fundit, ku çdo detaj tregon pasionin tonë për dizajnin e jashtëm premium.",
+  "viewProject": "Shiko Projektin",
+  "viewAll": "Shiko të gjitha projektet",
+  "filters": {
+    "all": "Të gjitha",
+    "gardens": "Kopshte",
+    "yards": "Oborre",
+    "pools": "Pishina",
+    "terraces": "Terasa",
+    "paving": "Shtrime"
+  },
+  "empty": {
+    "title": "Ende pa projekte në këtë kategori",
+    "message": "Provoni një kategori tjetër për të parë më shumë nga puna jonë.",
+    "retry": "Shiko të Gjitha"
+  },
+  "error": {
+    "title": "Projektet nuk mund të ngarkohen",
+    "message": "Diçka shkoi keq gjatë ngarkimit të projekteve. Ju lutemi provoni përsëri.",
+    "retry": "Provo Përsëri"
+  }
+}

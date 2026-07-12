@@ -1,0 +1,37 @@
+{
+  "about": {
+    "eyebrow": "Über Uns",
+    "title": "Wir schaffen Außenräume, die der Zeit standhalten",
+    "paragraphs": [
+      "Bei AV1-Company glauben wir, dass jeder Außenbereich das Potenzial hat, zu einem Kunstwerk zu werden. Mit jahrelanger Erfahrung in hochwertigem Landschaftsdesign und -bau verwandeln wir Gärten, Höfe und Außenbereiche in elegante Räume, die Funktionalität mit Ästhetik verbinden.",
+      "Jedes Projekt beginnt mit einer Vision und endet mit bis ins kleinste Detail durchdachter Umsetzung — von der Materialauswahl bis zur finalen Ausführung. Unser Team vereint Expertise in Landschaftsarchitektur, handwerkliches Können und echte Leidenschaft für die Natur, um Räume zu schaffen, die Bestand haben."
+    ],
+    "cta": "Mehr Erfahren"
+  },
+  "stats": {
+    "items": [
+      { "value": 120, "suffix": "+", "label": "Abgeschlossene Projekte" },
+      { "value": 98, "suffix": "%", "label": "Zufriedene Kunden" },
+      { "value": 15, "suffix": "+", "label": "Jahre Erfahrung" },
+      { "value": 5000, "suffix": "+", "label": "m² Verwandelte Fläche" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Unsere Leistungen",
+    "title": "Was Wir Anbieten",
+    "subtitle": "Von der Konzeption bis zur Umsetzung bieten wir umfassende Lösungen für jeden Außenbereich.",
+    "viewAll": "Alle Leistungen Ansehen",
+    "cta": "Mehr Erfahren",
+    "error": {
+      "title": "Leistungen konnten nicht geladen werden",
+      "message": "Beim Laden unserer Leistungen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+      "retry": "Erneut Versuchen"
+    }
+  },
+  "cta": {
+    "title": "Bereit, Ihren Außenbereich zu Verwandeln?",
+    "subtitle": "Lassen Sie uns gemeinsam etwas Schönes erschaffen.",
+    "primaryCta": "Kostenloses Angebot",
+    "secondaryCta": "Unsere Projekte Ansehen"
+  }
+}

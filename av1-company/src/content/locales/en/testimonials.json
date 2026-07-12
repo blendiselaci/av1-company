@@ -1,0 +1,27 @@
+{
+  "eyebrow": "Testimonials",
+  "title": "What Our Clients Say",
+  "subtitle": "We take pride in delivering outdoor spaces our clients truly love.",
+  "ratingLabel": "{rating} out of 5 stars",
+  "prev": "Previous testimonial",
+  "next": "Next testimonial",
+  "summary": {
+    "rating": "4.9",
+    "basedOn": "Based on 120+ happy customers",
+    "stats": [
+      { "value": 120, "suffix": "+", "label": "Projects Completed" },
+      { "value": 250, "suffix": "+", "label": "Happy Clients" },
+      { "value": 15, "suffix": "+", "label": "Years Experience" },
+      { "value": 18, "suffix": "+", "label": "Team Members" }
+    ]
+  },
+  "empty": {
+    "title": "No testimonials yet",
+    "message": "Check back soon to hear what our clients are saying."
+  },
+  "error": {
+    "title": "Unable to load testimonials",
+    "message": "Something went wrong while loading client reviews. Please try again.",
+    "retry": "Try Again"
+  }
+}

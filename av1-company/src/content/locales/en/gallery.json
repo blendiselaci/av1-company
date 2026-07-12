@@ -1,0 +1,30 @@
+{
+  "eyebrow": "Gallery",
+  "title": "Our Gallery",
+  "subtitle": "A collection of moments from our projects, where every detail tells the story of a transformed space.",
+  "viewAll": "View Full Gallery",
+  "filters": {
+    "all": "All",
+    "gardens": "Gardens",
+    "yards": "Yards",
+    "pools": "Pools",
+    "terraces": "Terraces",
+    "paving": "Paving"
+  },
+  "empty": {
+    "title": "No photos in this category yet",
+    "message": "Try selecting a different category to see more of our work.",
+    "retry": "View All"
+  },
+  "error": {
+    "title": "Unable to load the gallery",
+    "message": "Something went wrong while loading photos. Please try again.",
+    "retry": "Try Again"
+  },
+  "lightbox": {
+    "close": "Close gallery",
+    "next": "Next photo",
+    "previous": "Previous photo",
+    "of": "of"
+  }
+}

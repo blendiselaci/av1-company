@@ -1,0 +1,25 @@
+{
+  "title": "Why Choose Us",
+  "items": [
+    {
+      "id": "experience",
+      "title": "Professional Experience",
+      "description": "Years of experience in designing and building premium outdoor spaces."
+    },
+    {
+      "id": "custom-design",
+      "title": "Personalized Projects",
+      "description": "Every project is created from scratch, tailored to your vision and space."
+    },
+    {
+      "id": "materials",
+      "title": "Quality Materials",
+      "description": "We use only premium materials, chosen for durability and aesthetics."
+    },
+    {
+      "id": "attention-to-detail",
+      "title": "Attention to Detail",
+      "description": "From concept to completion, every detail is handled with the utmost care."
+    }
+  ]
+}

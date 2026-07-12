@@ -1,0 +1,25 @@
+{
+  "eyebrow": "Portfolio",
+  "title": "Unsere Projekte",
+  "subtitle": "Eine Auswahl unserer neuesten Arbeiten, bei denen jedes Detail unsere Leidenschaft für hochwertiges Außendesign widerspiegelt.",
+  "viewProject": "Projekt Ansehen",
+  "viewAll": "Alle Projekte Ansehen",
+  "filters": {
+    "all": "Alle",
+    "gardens": "Gärten",
+    "yards": "Höfe",
+    "pools": "Pools",
+    "terraces": "Terrassen",
+    "paving": "Pflasterung"
+  },
+  "empty": {
+    "title": "Noch keine Projekte in dieser Kategorie",
+    "message": "Wählen Sie eine andere Kategorie, um mehr von unserer Arbeit zu sehen.",
+    "retry": "Alle Anzeigen"
+  },
+  "error": {
+    "title": "Projekte konnten nicht geladen werden",
+    "message": "Beim Laden der Projekte ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut Versuchen"
+  }
+}

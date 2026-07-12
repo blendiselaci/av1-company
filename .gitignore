@@ -1,0 +1,18 @@
+# Each app (av1-company/, admin/, server/) has its own .gitignore for its
+# own node_modules/dist/.env — this covers the repo root.
+
+node_modules
+dist
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Real secrets — only *.example files are meant to be committed
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Local Docker/Postgres volumes and build artifacts, if ever created at root
+.pgdata

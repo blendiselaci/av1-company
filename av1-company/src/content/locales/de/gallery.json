@@ -1,0 +1,30 @@
+{
+  "eyebrow": "Galerie",
+  "title": "Unsere Galerie",
+  "subtitle": "Eine Sammlung von Momenten aus unseren Projekten, in denen jedes Detail die Geschichte eines verwandelten Raums erzählt.",
+  "viewAll": "Ganze Galerie Ansehen",
+  "filters": {
+    "all": "Alle",
+    "gardens": "Gärten",
+    "yards": "Höfe",
+    "pools": "Pools",
+    "terraces": "Terrassen",
+    "paving": "Pflasterung"
+  },
+  "empty": {
+    "title": "Noch keine Fotos in dieser Kategorie",
+    "message": "Wählen Sie eine andere Kategorie, um mehr von unserer Arbeit zu sehen.",
+    "retry": "Alle Anzeigen"
+  },
+  "error": {
+    "title": "Galerie konnte nicht geladen werden",
+    "message": "Beim Laden der Fotos ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut Versuchen"
+  },
+  "lightbox": {
+    "close": "Galerie schließen",
+    "next": "Nächstes Foto",
+    "previous": "Vorheriges Foto",
+    "of": "von"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "AV1-Company | Premium Landscaping & Outdoor Design",
+  "short_name": "AV1-Company",
+  "description": "Premium landscaping and outdoor design studio in Tirana, Albania.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#2a5736",
+  "lang": "sq",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "projects": "Projects",
+    "transformations": "Transformations",
+    "gallery": "Gallery",
+    "video": "Video",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Transforming outdoor spaces into timeless beauty.",
+    "rights": "All rights reserved.",
+    "privacyLink": "Privacy Policy"
+  },
+  "header": {
+    "ctaContact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle color theme",
+    "chooseLanguage": "Choose language",
+    "skipToContent": "Skip to content",
+    "scrollToTop": "Scroll to top"
+  },
+  "hero": {
+    "eyebrow": "Transforming Outdoor Spaces Into Timeless Beauty",
+    "headline": "Transforming Outdoor Spaces Into Timeless Beauty.",
+    "subtitle": "We craft premium landscapes where architecture meets nature — gardens, outdoor living spaces and exteriors that elevate the value and character of every property.",
+    "primaryCta": "View Projects",
+    "secondaryCta": "Contact Us"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "Sorry, we couldn't find the page you're looking for. It may have been moved or no longer exists.",
+    "backHome": "Back to Home",
+    "contactUs": "Contact Us"
+  },
+  "whatsapp": {
+    "label": "Contact us directly on WhatsApp",
+    "message": "Hello AV1 Company, I'm interested in your services."
+  }
+}

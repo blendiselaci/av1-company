@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Transformations",
+  "title": "Our Transformations",
+  "subtitle": "See how tired outdoor spaces become modern, functional and elegant environments — real proof of our craftsmanship.",
+  "beforeLabel": "Before",
+  "afterLabel": "After",
+  "viewAll": "View All Transformations",
+  "prev": "Previous transformation",
+  "next": "Next transformation",
+  "detailLabels": {
+    "projectName": "Project Name",
+    "location": "Location",
+    "workCompleted": "Work Completed",
+    "completionTime": "Completion Time"
+  },
+  "empty": {
+    "title": "No transformations yet",
+    "message": "Check back soon — new before/after projects are added regularly.",
+    "retry": "Refresh"
+  },
+  "error": {
+    "title": "Unable to load transformations",
+    "message": "Something went wrong while loading transformations. Please try again.",
+    "retry": "Try Again"
+  }
+}

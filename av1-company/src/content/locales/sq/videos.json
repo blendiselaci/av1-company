@@ -1,0 +1,26 @@
+{
+  "eyebrow": "Video Galeria",
+  "title": "Projektet Tona në Video",
+  "subtitle": "Përjetoni projektet tona përmes turne video, ku lëvizja dhe drita zbulojnë çdo detaj të punës sonë.",
+  "viewAll": "Shiko të gjitha videot",
+  "close": "Mbyll videon",
+  "mute": "Hesht zërin",
+  "unmute": "Aktivizo zërin",
+  "categories": {
+    "gardens": "Kopshte",
+    "yards": "Oborre",
+    "pools": "Pishina",
+    "terraces": "Terasa",
+    "paving": "Shtrime"
+  },
+  "empty": {
+    "title": "Ende pa video",
+    "message": "Kontrolloni së shpejti — turne të reja video shtohen rregullisht.",
+    "retry": "Rifresko"
+  },
+  "error": {
+    "title": "Videot nuk mund të ngarkohen",
+    "message": "Diçka shkoi keq gjatë ngarkimit të videove. Ju lutemi provoni përsëri.",
+    "retry": "Provo Përsëri"
+  }
+}

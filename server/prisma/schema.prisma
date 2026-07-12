@@ -1,0 +1,319 @@
+// AV1-Company CMS — Prisma schema
+// Content that is user-facing text is stored per-locale (En/De/Sq) as flat columns,
+// mirroring the frontend's existing trilingual JSON content structure exactly.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Enums
+// ────────────────────────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+/// Mirrors the frontend's ProjectCategory union type exactly.
+enum ProjectCategory {
+  GARDENS
+  YARDS
+  POOLS
+  TERRACES
+  PAVING
+}
+
+enum ContactStatus {
+  NEW
+  READ
+  REPLIED
+}
+
+/// What a Media record is being used for — drives the Cloudinary subfolder an
+/// upload lands in and lets the media library be filtered by purpose.
+enum MediaCategory {
+  PROJECT_COVER
+  GALLERY
+  BEFORE_AFTER
+  SERVICE
+  TESTIMONIAL_AVATAR
+  VIDEO
+  VIDEO_THUMBNAIL
+}
+
+enum MediaResourceType {
+  IMAGE
+  VIDEO
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Auth
+// ────────────────────────────────────────────────────────────────────
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         Role     @default(EDITOR)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  refreshTokens RefreshToken[]
+  mediaUploads  Media[]
+
+  @@map("users")
+}
+
+/// One row per issued refresh token, so any session can be revoked individually
+/// (logout, password change, admin-initiated revocation) without invalidating others.
+model RefreshToken {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  createdByIp String?
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("refresh_tokens")
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Content
+// ────────────────────────────────────────────────────────────────────
+
+model Project {
+  id          String          @id @default(cuid())
+  slug        String          @unique
+  titleEn     String
+  titleDe     String
+  titleSq     String
+  descriptionEn String
+  descriptionDe String
+  descriptionSq String
+  category    ProjectCategory
+  location    String
+  year        Int
+  image       String
+  imagePublicId String?
+  gallery     String[]        @default([])
+  services    String[]        @default([])
+  isPublished Boolean         @default(true)
+  order       Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  galleryImages GalleryImage[]
+  videos        Video[]
+
+  @@index([category, isPublished])
+  @@index([isPublished, order])
+  @@map("projects")
+}
+
+model GalleryImage {
+  id            String          @id @default(cuid())
+  titleEn       String
+  titleDe       String
+  titleSq       String
+  descriptionEn String
+  descriptionDe String
+  descriptionSq String
+  category      ProjectCategory
+  image         String
+  imagePublicId String?
+  projectId     String?
+  project       Project?        @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  isPublished   Boolean         @default(true)
+  order         Int             @default(0)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@index([category, isPublished])
+  @@index([isPublished, order])
+  @@index([projectId])
+  @@map("gallery_images")
+}
+
+model BeforeAfterProject {
+  id                  String          @id @default(cuid())
+  titleEn             String
+  titleDe             String
+  titleSq             String
+  descriptionEn       String
+  descriptionDe       String
+  descriptionSq       String
+  workCompletedEn     String
+  workCompletedDe     String
+  workCompletedSq     String
+  completionTimeEn    String
+  completionTimeDe    String
+  completionTimeSq    String
+  location            String
+  category            ProjectCategory
+  beforeImage         String
+  beforeImagePublicId String?
+  afterImage          String
+  afterImagePublicId  String?
+  year                Int
+  isPublished         Boolean         @default(true)
+  order               Int             @default(0)
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+
+  @@index([category, isPublished])
+  @@index([isPublished, order])
+  @@map("before_after_projects")
+}
+
+model Video {
+  id              String          @id @default(cuid())
+  titleEn         String
+  titleDe         String
+  titleSq         String
+  descriptionEn   String
+  descriptionDe   String
+  descriptionSq   String
+  category        ProjectCategory
+  duration        String
+  thumbnail       String
+  thumbnailPublicId String?
+  videoUrl        String
+  videoPublicId   String?
+  projectId       String?
+  project         Project?        @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  isPublished     Boolean         @default(true)
+  order           Int             @default(0)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@index([category, isPublished])
+  @@index([isPublished, order])
+  @@index([projectId])
+  @@map("videos")
+}
+
+model Testimonial {
+  id            String   @id @default(cuid())
+  clientName    String
+  location      String
+  projectType   String
+  textEn        String
+  textDe        String
+  textSq        String
+  rating        Int      @default(5)
+  image         String?
+  imagePublicId String?
+  date          String
+  isPublished   Boolean  @default(true)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([isPublished, order])
+  @@map("testimonials")
+}
+
+model Faq {
+  id          String   @id @default(cuid())
+  questionEn  String
+  questionDe  String
+  questionSq  String
+  answerEn    String
+  answerDe    String
+  answerSq    String
+  isPublished Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished, order])
+  @@map("faqs")
+}
+
+model Service {
+  id            String   @id @default(cuid())
+  titleEn       String
+  titleDe       String
+  titleSq       String
+  descriptionEn String
+  descriptionDe String
+  descriptionSq String
+  icon          String
+  image         String?
+  imagePublicId String?
+  isPublished   Boolean  @default(true)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([isPublished, order])
+  @@map("services")
+}
+
+model ContactMessage {
+  id        String        @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  phone     String?
+  service   String?
+  message   String
+  status    ContactStatus @default(NEW)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, createdAt])
+  @@map("contact_messages")
+}
+
+/// Ledger of every asset uploaded through the media management system — created
+/// the moment a file lands in Cloudinary, independent of whether it's yet been
+/// attached to a content record via that record's own url/publicId fields.
+/// Enables a browsable media library, replace-in-place, and permanent deletion.
+model Media {
+  id           String            @id @default(cuid())
+  url          String
+  publicId     String            @unique
+  resourceType MediaResourceType
+  category     MediaCategory
+  mimeType     String
+  sizeBytes    Int
+  uploadedById String?
+  uploadedBy   User?             @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@index([category, createdAt])
+  @@index([resourceType])
+  @@index([uploadedById])
+  @@map("media")
+}
+
+/// Singleton row (always id = 1) holding site-wide, admin-editable business info.
+model Settings {
+  id           Int      @id @default(1)
+  companyName  String
+  phone        String
+  email        String
+  address      String
+  workingHours String
+  facebookUrl  String?
+  instagramUrl String?
+  mapsUrl      String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("settings")
+}

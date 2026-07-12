@@ -1,0 +1,14 @@
+node_modules
+dist
+.pgdata
+coverage
+*.log
+npm-debug.log*
+.env
+.env.local
+.env.*.local
+.git
+.gitignore
+.dockerignore
+Dockerfile
+README.md

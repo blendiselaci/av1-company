@@ -1,0 +1,38 @@
+{
+  "eyebrow": "Legal",
+  "title": "Privacy Policy",
+  "lastUpdated": "Last updated: January 2026",
+  "intro": "AV1-Company (\"we\", \"us\", \"our\") respects your privacy and is committed to protecting the personal data you share with us. This policy explains what information we collect, how we use it, and the choices you have.",
+  "sections": [
+    {
+      "id": "information-we-collect",
+      "heading": "Information We Collect",
+      "body": "When you submit our contact form, we collect the information you provide directly: your first and last name, email address, phone number, the service you're interested in, and any message you send us. We do not collect payment information through this website."
+    },
+    {
+      "id": "how-we-use-it",
+      "heading": "How We Use Your Information",
+      "body": "We use the information you submit solely to respond to your inquiry, prepare a quote, and communicate with you about your project. We do not sell, rent or trade your personal information to third parties."
+    },
+    {
+      "id": "data-retention",
+      "heading": "Data Retention",
+      "body": "We retain contact form submissions only for as long as necessary to respond to your inquiry and maintain a record of client communications, after which they are securely deleted."
+    },
+    {
+      "id": "cookies",
+      "heading": "Cookies & Local Storage",
+      "body": "This website uses local storage in your browser to remember your language and theme preferences. We do not use tracking or advertising cookies."
+    },
+    {
+      "id": "your-rights",
+      "heading": "Your Rights",
+      "body": "You have the right to request access to, correction of, or deletion of any personal data we hold about you. To exercise these rights, contact us using the details below."
+    },
+    {
+      "id": "contact",
+      "heading": "Contact Us",
+      "body": "If you have any questions about this privacy policy or how we handle your data, please reach out to us at info@av1-company.al or through our contact page."
+    }
+  ]
+}

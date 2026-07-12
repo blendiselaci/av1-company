@@ -1,0 +1,68 @@
+# Render "Blueprint" — https://render.com/docs/blueprint-spec
+# Import this repo on Render and it will pick up this file automatically, or
+# configure a Web Service manually pointing at server/Dockerfile (target:
+# production). Env vars marked `sync: false` are secrets — set their real
+# values in the Render dashboard, never here.
+
+services:
+  - type: web
+    name: av1-company-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: API_PREFIX
+        value: /api/v1
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_EXPIRES_IN
+        value: 15m
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: 30d
+      - key: CORS_ORIGIN
+        sync: false
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX
+        value: 300
+      - key: AUTH_RATE_LIMIT_MAX
+        value: 10
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: CLOUDINARY_UPLOAD_FOLDER
+        value: av1-company
+      - key: SEED_ADMIN_EMAIL
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
+      - key: SEED_ADMIN_NAME
+        value: AV1 Admin
+      - key: SEED_EDITOR_EMAIL
+        sync: false
+      - key: SEED_EDITOR_PASSWORD
+        sync: false
+      - key: SEED_EDITOR_NAME
+        value: AV1 Editor
+
+# `prisma migrate deploy` is deliberately NOT wired in as an automatic
+# pre-deploy step — see DEPLOYMENT.md's "Database migration" section for why,
+# and the exact command to run by hand (or via Render's Shell tab, which does
+# have the Prisma CLI available since it runs `prisma` as a regular
+# dependency now — see server/package.json).

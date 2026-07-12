@@ -1,0 +1,14 @@
+{
+  "eyebrow": "FAQ",
+  "title": "Frequently Asked Questions",
+  "subtitle": "Answers to the questions we hear most often from clients planning a project with us.",
+  "empty": {
+    "title": "No questions yet",
+    "message": "Check back soon — we're adding answers to common questions."
+  },
+  "error": {
+    "title": "Unable to load FAQs",
+    "message": "Something went wrong while loading frequently asked questions. Please try again.",
+    "retry": "Try Again"
+  }
+}

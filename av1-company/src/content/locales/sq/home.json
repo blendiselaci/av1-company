@@ -1,0 +1,37 @@
+{
+  "about": {
+    "eyebrow": "Rreth Nesh",
+    "title": "Ne krijojmë hapësira të jashtme që zgjasin në kohë",
+    "paragraphs": [
+      "Në AV1-Company, besojmë se çdo hapësirë e jashtme ka potencialin të bëhet një vepër arti. Me vite eksperiencë në dizajnin dhe ndërtimin e peizazheve premium, transformojmë kopshte, oborre dhe ambiente të jashtme në hapësira elegante që kombinojnë funksionalitetin me estetikën.",
+      "Çdo projekt fillon me një vizion dhe përfundon me detaje të përpunuara me kujdes ekstrem — nga zgjedhja e materialeve deri te ekzekutimi final. Ekipi ynë sjell së bashku ekspertizë në arkitekturë peizazhi, punime dore dhe një pasion të vërtetë për natyrën, për të krijuar hapësira që zgjasin në kohë."
+    ],
+    "cta": "Zbuloni më shumë"
+  },
+  "stats": {
+    "items": [
+      { "value": 120, "suffix": "+", "label": "Projekte të realizuara" },
+      { "value": 98, "suffix": "%", "label": "Klientë të kënaqur" },
+      { "value": 15, "suffix": "+", "label": "Vite eksperiencë" },
+      { "value": 5000, "suffix": "+", "label": "m² hapësira të transformuara" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Shërbimet Tona",
+    "title": "Çfarë Ofrojmë",
+    "subtitle": "Nga koncepti deri te realizimi, ofrojmë shërbime të plota për të transformuar çdo hapësirë të jashtme.",
+    "viewAll": "Shiko të gjitha shërbimet",
+    "cta": "Mëso më shumë",
+    "error": {
+      "title": "Shërbimet nuk mund të ngarkohen",
+      "message": "Diçka shkoi keq gjatë ngarkimit të shërbimeve tona. Ju lutemi provoni përsëri.",
+      "retry": "Provo Përsëri"
+    }
+  },
+  "cta": {
+    "title": "Gati të Transformoni Hapësirën Tuaj të Jashtme?",
+    "subtitle": "Le të krijojmë diçka të bukur së bashku.",
+    "primaryCta": "Kërko Ofertë Falas",
+    "secondaryCta": "Shiko Projektet Tona"
+  }
+}
