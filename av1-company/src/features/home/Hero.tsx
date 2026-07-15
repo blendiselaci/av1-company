@@ -1,11 +1,24 @@
+import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { LinkButton } from '@/components/ui/LinkButton'
 import { ROUTES } from '@/lib/routes'
 
+const HERO_VIDEO_URL =
+  'https://res.cloudinary.com/pxmibxkn/video/upload/so_1.5,c_fill,w_1920,h_1080/g_auto/f_auto,q_auto/av1-company/hero/bg-video.mp4'
+const HERO_VIDEO_POSTER =
+  'https://res.cloudinary.com/pxmibxkn/video/upload/so_1.5,c_fill,w_1920,h_1080/g_auto/f_auto,q_auto/av1-company/hero/bg-video.jpg'
+
 export function Hero() {
   const { t } = useTranslation()
   const shouldReduceMotion = useReducedMotion()
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Some browsers don't reliably honor the bare `autoplay` attribute,
+  // especially after client-side route navigation — nudge playback explicitly.
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {})
+  }, [])
 
   const containerVariants: Variants = {
     hidden: {},
@@ -25,20 +38,20 @@ export function Hero() {
 
   return (
     <section className="relative flex h-screen min-h-[640px] w-full items-center overflow-hidden bg-av1-dark">
-      {/* Placeholder backdrop — swap for real hero photography/video once available */}
-      <motion.div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(61,122,77,0.35),transparent_60%),linear-gradient(160deg,#14251a_0%,#1c1d1f_55%,#0d100d_100%)]"
-        initial={{ scale: 1 }}
-        animate={{ scale: shouldReduceMotion ? 1 : 1.08 }}
-        transition={{
-          duration: shouldReduceMotion ? 0.01 : 24,
-          ease: 'linear',
-          repeat: shouldReduceMotion ? 0 : Infinity,
-          repeatType: 'reverse',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[linear-gradient(160deg,#14251a_0%,#1c1d1f_55%,#0d100d_100%)]" aria-hidden="true">
+        <video
+          ref={videoRef}
+          src={HERO_VIDEO_URL}
+          poster={HERO_VIDEO_POSTER}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        />
+      </div>
+      {/* Darkening overlay ("shadow") keeps the headline legible over the video */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
         <motion.div className="max-w-2xl" variants={containerVariants} initial="hidden" animate="visible">

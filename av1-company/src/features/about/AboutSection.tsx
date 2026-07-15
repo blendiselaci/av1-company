@@ -1,14 +1,19 @@
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Leaf } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { LinkButton } from '@/components/ui/LinkButton'
+import { LazyImage } from '@/components/ui/LazyImage'
 import { ROUTES } from '@/lib/routes'
+
+const ABOUT_IMAGE_URL = 'https://res.cloudinary.com/pxmibxkn/image/upload/v1783893669/av1-company/home/about-photo.jpg'
 
 export function AboutSection() {
   const { t } = useTranslation('home')
   const shouldReduceMotion = useReducedMotion()
   const paragraphs = t('about.paragraphs', { returnObjects: true }) as string[]
+  const [errored, setErrored] = useState(false)
 
   return (
     <section className="bg-background py-24 sm:py-32">
@@ -21,8 +26,11 @@ export function AboutSection() {
             transition={{ duration: shouldReduceMotion ? 0.01 : 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-[linear-gradient(160deg,#1e3f27_0%,#1c1d1f_60%,#0d100d_100%)]"
           >
-            {/* Placeholder — swap for real project photography once available */}
-            <Leaf className="absolute inset-0 m-auto h-24 w-24 text-white/10" aria-hidden="true" />
+            {!errored ? (
+              <LazyImage src={ABOUT_IMAGE_URL} alt={t('about.title')} onError={() => setErrored(true)} />
+            ) : (
+              <Leaf className="absolute inset-0 m-auto h-24 w-24 text-white/10" aria-hidden="true" />
+            )}
           </motion.div>
 
           <motion.div

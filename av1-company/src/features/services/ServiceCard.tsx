@@ -1,18 +1,23 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, Flower2, Home as HomeIcon, Scissors, TreePine, Waves } from 'lucide-react'
+import { ArrowRight, Droplet, Droplets, Fence, Layers, Mountain, Sprout, TreePine, TrendingUp, Waves } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { LazyImage } from '@/components/ui/LazyImage'
 import { LinkButton } from '@/components/ui/LinkButton'
-import { ROUTES } from '@/lib/routes'
+import { serviceDetailRoute } from '@/lib/routes'
 import type { ServiceItem } from '@/types'
 
 const SERVICE_ICONS: Record<string, LucideIcon> = {
-  'garden-design': Flower2,
-  hardscaping: TreePine,
+  yards: TreePine,
+  fences: Fence,
   pools: Waves,
-  terraces: HomeIcon,
-  maintenance: Scissors,
+  stairs: TrendingUp,
+  fountains: Droplets,
+  walls: Layers,
+  'stone-walls': Mountain,
+  basin: Droplet,
+  grass: Sprout,
+  drainage: Droplet,
 }
 
 interface ServiceCardProps {
@@ -24,7 +29,7 @@ interface ServiceCardProps {
 export function ServiceCard({ service, ctaLabel, index }: ServiceCardProps) {
   const shouldReduceMotion = useReducedMotion()
   const [errored, setErrored] = useState(false)
-  const Icon = SERVICE_ICONS[service.icon] ?? Flower2
+  const Icon = SERVICE_ICONS[service.icon] ?? TreePine
 
   return (
     <motion.div
@@ -52,7 +57,7 @@ export function ServiceCard({ service, ctaLabel, index }: ServiceCardProps) {
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-xl font-semibold tracking-tight text-foreground">{service.title}</h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/70">{service.description}</p>
-        <LinkButton to={ROUTES.services} variant="outline" size="sm" className="mt-6 gap-2 self-start">
+        <LinkButton to={serviceDetailRoute(service.slug)} variant="outline" size="sm" className="mt-6 gap-2 self-start">
           {ctaLabel}
           <ArrowRight size={16} />
         </LinkButton>

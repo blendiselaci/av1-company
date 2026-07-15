@@ -56,13 +56,13 @@ async function seedSettings() {
     create: {
       id: 1,
       companyName: 'AV1-Company',
-      phone: '+355 69 123 4567',
-      email: 'info@av1-company.al',
-      address: 'Rruga e Kavajës, Tirana 1001, Albania',
+      phone: '+383 45 644 102',
+      email: 'av1.company10@gmail.com',
+      address: 'Rruga e Kavajës, Peja 1001, Kosovo',
       workingHours: 'Mon – Sat: 08:00 – 18:00',
-      facebookUrl: 'https://facebook.com/av1company',
+      facebookUrl: 'https://www.facebook.com/profile.php?id=61573610664993',
       instagramUrl: 'https://instagram.com/av1company',
-      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rruga+e+Kavaj%C3%ABs+Tirana',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rruga+e+Kavaj%C3%ABs+Peja',
     },
   })
   console.log('  ✓ Settings seeded')
@@ -71,10 +71,10 @@ async function seedSettings() {
 async function seedProjects() {
   const projects = [
     {
-      slug: 'tirana-villa-garden',
-      titleEn: 'The Villa Garden in Tirana',
-      titleDe: 'Der Villagarten in Tirana',
-      titleSq: 'Kopshti i Vilës në Tiranë',
+      slug: 'peja-villa-garden',
+      titleEn: 'The Villa Garden in Peja',
+      titleDe: 'Der Villagarten in Peja',
+      titleSq: 'Kopshti i Vilës në Pejë',
       descriptionEn:
         'A Mediterranean garden with harmonized greenery, stone pathways and seating areas naturally integrated with the villa\'s architecture.',
       descriptionDe:
@@ -82,10 +82,10 @@ async function seedProjects() {
       descriptionSq:
         'Një kopsht mesdhetar me gjelbërim të harmonizuar, shtigje guri dhe zona ulëse të integruara natyrshëm me arkitekturën e vilës.',
       category: ProjectCategory.GARDENS,
-      location: 'Tirana',
+      location: 'Peja',
       year: 2024,
       services: ['Garden Design', 'Greenery Maintenance'],
-      image: img('projects/tirana-villa-garden/main'),
+      image: img('projects/peja-villa-garden/main'),
     },
     {
       slug: 'vlora-infinity-pool',
@@ -254,7 +254,7 @@ async function seedGalleryImages() {
 async function seedBeforeAfterProjects() {
   const items = [
     {
-      id: 'seed-before-after-tirana-yard-revival',
+      id: 'seed-before-after-peja-yard-revival',
       titleEn: 'From Neglected Yard to Modern Oasis',
       titleDe: 'Vom Vernachlässigten Hof zur Modernen Oase',
       titleSq: 'Nga Oborr i Braktisur në Oaz Modern',
@@ -270,11 +270,11 @@ async function seedBeforeAfterProjects() {
       completionTimeEn: '4 Weeks',
       completionTimeDe: '4 Wochen',
       completionTimeSq: '4 Javë',
-      location: 'Tirana',
+      location: 'Peja',
       category: ProjectCategory.YARDS,
       year: 2024,
-      before: img('transformations/tirana-yard-revival/before'),
-      after: img('transformations/tirana-yard-revival/after'),
+      before: img('transformations/peja-yard-revival/before'),
+      after: img('transformations/peja-yard-revival/after'),
     },
     {
       id: 'seed-before-after-vlora-pool-revival',
@@ -359,17 +359,17 @@ async function seedBeforeAfterProjects() {
 async function seedVideos() {
   const videos = [
     {
-      id: 'seed-video-tirana-villa-tour',
-      titleEn: 'Video Tour: The Villa Garden in Tirana',
-      titleDe: 'Video-Tour: Der Villagarten in Tirana',
-      titleSq: 'Tur Video: Kopshti i Vilës në Tiranë',
-      descriptionEn: 'A video walkthrough of the villa garden in Tirana, from the entrance to its most intimate corners.',
-      descriptionDe: 'Ein Video-Rundgang durch den Villagarten in Tirana, vom Eingang bis zu seinen intimsten Ecken.',
-      descriptionSq: 'Një udhëtim video nëpër kopshtin e vilës në Tiranë, nga hyrja deri te qoshet më intime.',
+      id: 'seed-video-peja-villa-tour',
+      titleEn: 'Video Tour: The Villa Garden in Peja',
+      titleDe: 'Video-Tour: Der Villagarten in Peja',
+      titleSq: 'Tur Video: Kopshti i Vilës në Pejë',
+      descriptionEn: 'A video walkthrough of the villa garden in Peja, from the entrance to its most intimate corners.',
+      descriptionDe: 'Ein Video-Rundgang durch den Villagarten in Peja, vom Eingang bis zu seinen intimsten Ecken.',
+      descriptionSq: 'Një udhëtim video nëpër kopshtin e vilës në Pejë, nga hyrja deri te qoshet më intime.',
       category: ProjectCategory.GARDENS,
       duration: '2:14',
-      thumb: img('videos/tirana-villa-tour/thumbnail'),
-      video: vid('videos/tirana-villa-tour/tour'),
+      thumb: img('videos/peja-villa-tour/thumbnail'),
+      video: vid('videos/peja-villa-tour/tour'),
     },
     {
       id: 'seed-video-vlora-pool-tour',
@@ -444,7 +444,7 @@ async function seedTestimonials() {
     {
       id: 'seed-testimonial-elira-hoxha',
       clientName: 'Elira Hoxha',
-      location: 'Tirana',
+      location: 'Peja',
       projectType: 'Private garden',
       textEn: "AV1-Company turned our garden into a space we couldn't have imagined ourselves. Every detail was considered with extreme care.",
       textDe: 'AV1-Company hat unseren Garten in einen Raum verwandelt, den wir uns selbst nicht hätten vorstellen können. Jedes Detail wurde mit größter Sorgfalt bedacht.',
@@ -477,7 +477,7 @@ async function seedTestimonials() {
     {
       id: 'seed-testimonial-bledar-rama',
       clientName: 'Bledar Rama',
-      location: 'Tirana',
+      location: 'Peja',
       projectType: 'Business space',
       textEn: "Our business's outdoor space now makes exactly the first impression we wanted for every client who visits.",
       textDe: 'Der Außenbereich unseres Unternehmens hinterlässt jetzt genau den ersten Eindruck, den wir uns für jeden Kunden gewünscht haben.',
@@ -553,11 +553,11 @@ async function seedFaqs() {
       questionDe: 'In welchen Gebieten sind Sie tätig?',
       questionSq: 'Cilat zona shërbeni?',
       answerEn:
-        "We work throughout Albania, with completed projects in Tirana, Durrës, Vlora, Saranda, Pogradec, Fier and Korça. Get in touch and we'll confirm availability in your area.",
+        "We work throughout Kosovo, with completed projects in Peja, Durrës, Vlora, Saranda, Pogradec, Fier and Korça. Get in touch and we'll confirm availability in your area.",
       answerDe:
-        'Wir arbeiten in ganz Albanien, mit abgeschlossenen Projekten in Tirana, Durrës, Vlora, Saranda, Pogradec, Fier und Korça. Kontaktieren Sie uns, und wir bestätigen die Verfügbarkeit in Ihrer Region.',
+        'Wir arbeiten in ganz Kosovo, mit abgeschlossenen Projekten in Peja, Durrës, Vlora, Saranda, Pogradec, Fier und Korça. Kontaktieren Sie uns, und wir bestätigen die Verfügbarkeit in Ihrer Region.',
       answerSq:
-        'Punojmë në të gjithë Shqipërinë, me projekte të realizuara në Tiranë, Durrës, Vlorë, Sarandë, Pogradec, Fier dhe Korçë. Na kontaktoni dhe do të konfirmojmë disponueshmërinë në zonën tuaj.',
+        'Punojmë në të gjithë Kosovën, me projekte të realizuara në Pejë, Durrës, Vlorë, Sarandë, Pogradec, Fier dhe Korçë. Na kontaktoni dhe do të konfirmojmë disponueshmërinë në zonën tuaj.',
     },
     {
       id: 'seed-faq-choose-materials',

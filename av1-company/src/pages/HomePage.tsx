@@ -4,6 +4,7 @@ import { Hero } from '@/features/home/Hero'
 import { AboutSection } from '@/features/about/AboutSection'
 import { CompanyStats } from '@/features/home/CompanyStats'
 import { ServicesPreview } from '@/features/services/ServicesPreview'
+import { ServicesOfferedSection } from '@/features/services/ServicesOfferedSection'
 import { ProjectsSection } from '@/features/projects/ProjectsSection'
 import { BeforeAfterSection } from '@/features/before-after/BeforeAfterSection'
 import { GallerySection } from '@/features/gallery/GallerySection'
@@ -23,6 +24,7 @@ export function HomePage() {
       <AboutSection />
       <CompanyStats />
       <ServicesPreview />
+      <ServicesOfferedSection />
       <ProjectsSection />
       <BeforeAfterSection />
       <GallerySection />

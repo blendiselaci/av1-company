@@ -5,12 +5,7 @@
   "viewProject": "Projekt Ansehen",
   "viewAll": "Alle Projekte Ansehen",
   "filters": {
-    "all": "Alle",
-    "gardens": "Gärten",
-    "yards": "Höfe",
-    "pools": "Pools",
-    "terraces": "Terrassen",
-    "paving": "Pflasterung"
+    "all": "Alle"
   },
   "empty": {
     "title": "Noch keine Projekte in dieser Kategorie",

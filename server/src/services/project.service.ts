@@ -19,7 +19,7 @@ function toPublic(project: Project): PublicProject {
 
 function buildWhere(query: AdminListProjectsQuery): Prisma.ProjectWhereInput {
   const where: Prisma.ProjectWhereInput = {}
-  if (query.category) where.category = query.category
+  if (query.categoryId) where.categoryId = query.categoryId
   if (query.isPublished !== undefined) where.isPublished = query.isPublished
   if (query.search) {
     where.OR = [

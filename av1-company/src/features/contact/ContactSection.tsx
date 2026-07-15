@@ -5,7 +5,6 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { ContactInfo } from '@/features/contact/ContactInfo'
 import { ContactForm } from '@/features/contact/ContactForm'
 import type { ContactFormLabels } from '@/features/contact/ContactForm'
-import { MapPlaceholder } from '@/features/contact/MapPlaceholder'
 
 interface ContactCard {
   id: string
@@ -44,10 +43,6 @@ export function ContactSection() {
           >
             <ContactForm labels={formLabels} />
           </motion.div>
-        </div>
-
-        <div className="mt-16">
-          <MapPlaceholder addressLabel={t('map.addressLabel')} address={t('map.address')} buttonLabel={t('map.button')} />
         </div>
       </Container>
     </section>

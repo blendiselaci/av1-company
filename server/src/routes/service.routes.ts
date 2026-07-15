@@ -9,12 +9,14 @@ import {
   adminListServicesQuerySchema,
   createServiceSchema,
   publicListServicesQuerySchema,
+  serviceSlugParamSchema,
   updateServiceSchema,
 } from '../validators/service.validator'
 
 const router = Router()
 
 router.get('/', validate({ query: publicListServicesQuerySchema }), serviceController.listPublicServices)
+router.get('/slug/:slug', validate({ params: serviceSlugParamSchema }), serviceController.getPublicServiceBySlug)
 
 const admin = Router()
 admin.use(authenticate, authorize(Role.ADMIN, Role.EDITOR))

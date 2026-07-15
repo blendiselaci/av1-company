@@ -8,25 +8,26 @@ import { PageLoader } from '@/components/layout/PageLoader'
 import { ProjectFilterBar } from '@/features/projects/ProjectFilterBar'
 import { ProjectsGrid } from '@/features/projects/ProjectsGrid'
 import { useProjectItems } from '@/features/projects/useProjectItems'
+import { useCategories } from '@/hooks/useCategories'
 import { ROUTES } from '@/lib/routes'
-import type { ProjectCategory, ProjectFilter } from '@/types'
+import type { ProjectFilter } from '@/types'
 
-type FilterKey = 'all' | ProjectCategory
+type FilterKey = string
 
 export function ProjectsSection() {
   const { t } = useTranslation('projects')
   const [active, setActive] = useState<FilterKey>('all')
 
   const { items, isLoading, isError, retry } = useProjectItems()
-  const filterLabels = t('filters', { returnObjects: true }) as Record<FilterKey, string>
+  const { categories, getLabel } = useCategories()
 
   const filters: ProjectFilter[] = useMemo(
-    () => (Object.keys(filterLabels) as FilterKey[]).map((key) => ({ key, label: filterLabels[key] })),
-    [filterLabels],
+    () => [{ key: 'all', label: t('filters.all') }, ...categories.map((category) => ({ key: category.id, label: category.label }))],
+    [categories, t],
   )
 
   const filteredProjects = useMemo(
-    () => (active === 'all' ? items : items.filter((project) => project.category === active)),
+    () => (active === 'all' ? items : items.filter((project) => project.categoryId === active)),
     [items, active],
   )
 
@@ -49,7 +50,7 @@ export function ProjectsSection() {
           ) : isError ? (
             <EmptyState title={t('error.title')} message={t('error.message')} retryLabel={t('error.retry')} onRetry={retry} />
           ) : filteredProjects.length > 0 ? (
-            <ProjectsGrid projects={filteredProjects} categoryLabels={filterLabels} viewLabel={t('viewProject')} />
+            <ProjectsGrid projects={filteredProjects} getLabel={getLabel} viewLabel={t('viewProject')} />
           ) : (
             <EmptyState
               title={t('empty.title')}
@@ -61,7 +62,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <LinkButton to={ROUTES.projects} variant="secondary" size="lg">
+          <LinkButton to={ROUTES.projects} variant="primary" size="lg">
             {t('viewAll')}
           </LinkButton>
         </div>

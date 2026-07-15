@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { projectsApi } from '../../api/resources'
-import { PROJECT_CATEGORIES } from '../../types/models'
+import { useCategories } from '../../hooks/useCategories'
 import { TextField } from '../../components/form/TextField'
 import { SelectField } from '../../components/form/SelectField'
 import { SwitchField } from '../../components/form/SwitchField'
@@ -29,7 +29,7 @@ const formSchema = z.object({
   descriptionEn: z.string().trim().min(1, 'Required'),
   descriptionDe: z.string().trim().min(1, 'Required'),
   descriptionSq: z.string().trim().min(1, 'Required'),
-  category: z.enum(['GARDENS', 'YARDS', 'POOLS', 'TERRACES', 'PAVING']),
+  categoryId: z.string().min(1, 'Required'),
   location: z.string().trim().min(1, 'Required'),
   year: z.coerce.number().int().min(1900).max(2100),
   image: imageValueSchema,
@@ -49,7 +49,7 @@ const DEFAULT_VALUES: FormValues = {
   descriptionEn: '',
   descriptionDe: '',
   descriptionSq: '',
-  category: 'GARDENS',
+  categoryId: '',
   location: '',
   year: new Date().getFullYear(),
   image: null,
@@ -66,6 +66,7 @@ export default function ProjectFormPage() {
   const toast = useToast()
   const queryClient = useQueryClient()
   const [imageError, setImageError] = useState<string | undefined>()
+  const { options: categoryOptions } = useCategories()
 
   const { data: existing, isLoading } = useQuery({
     queryKey: ['projects', id],
@@ -91,7 +92,7 @@ export default function ProjectFormPage() {
         descriptionEn: existing.descriptionEn,
         descriptionDe: existing.descriptionDe,
         descriptionSq: existing.descriptionSq,
-        category: existing.category,
+        categoryId: existing.categoryId ?? '',
         location: existing.location,
         year: existing.year,
         image: { url: existing.image, publicId: existing.imagePublicId },
@@ -113,7 +114,7 @@ export default function ProjectFormPage() {
         descriptionEn: values.descriptionEn,
         descriptionDe: values.descriptionDe,
         descriptionSq: values.descriptionSq,
-        category: values.category,
+        categoryId: values.categoryId,
         location: values.location,
         year: values.year,
         image: values.image!.url,
@@ -156,7 +157,7 @@ export default function ProjectFormPage() {
   return (
     <FormPageLayout title={isEdit ? 'Edit Project' : 'New Project'} backTo="/projects">
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
-        <TextField label="Slug" required registration={register('slug')} error={errors.slug?.message} placeholder="villa-garden-tirana" />
+        <TextField label="Slug" required registration={register('slug')} error={errors.slug?.message} placeholder="villa-garden-peja" />
         <LocalizedTextField label="Title" baseName="title" register={register} errors={errors} required />
         <LocalizedTextareaField label="Description" baseName="description" register={register} errors={errors} required />
 
@@ -164,9 +165,10 @@ export default function ProjectFormPage() {
           <SelectField
             label="Category"
             required
-            registration={register('category')}
-            error={errors.category?.message}
-            options={PROJECT_CATEGORIES.map((c) => ({ value: c, label: c }))}
+            registration={register('categoryId')}
+            error={errors.categoryId?.message}
+            options={categoryOptions}
+            placeholder="Select a category"
           />
           <TextField label="Location" required registration={register('location')} error={errors.location?.message} />
         </div>

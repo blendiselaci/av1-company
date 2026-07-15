@@ -12,6 +12,9 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 const DashboardHomePage = lazy(() => import('./features/dashboard/DashboardHomePage'))
 const ProfilePage = lazy(() => import('./features/profile/ProfilePage'))
 
+const CategoriesListPage = lazy(() => import('./features/categories/CategoriesListPage'))
+const CategoryFormPage = lazy(() => import('./features/categories/CategoryFormPage'))
+
 const ProjectsListPage = lazy(() => import('./features/projects/ProjectsListPage'))
 const ProjectFormPage = lazy(() => import('./features/projects/ProjectFormPage'))
 
@@ -50,6 +53,10 @@ export default function App() {
           <Route element={<DashboardLayout />}>
             <Route index element={<DashboardHomePage />} />
             <Route path="profile" element={<ProfilePage />} />
+
+            <Route path="categories" element={<CategoriesListPage />} />
+            <Route path="categories/new" element={<CategoryFormPage />} />
+            <Route path="categories/:id" element={<CategoryFormPage />} />
 
             <Route path="projects" element={<ProjectsListPage />} />
             <Route path="projects/new" element={<ProjectFormPage />} />

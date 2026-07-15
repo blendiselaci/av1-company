@@ -7,6 +7,7 @@ type Locale = 'en' | 'de' | 'sq'
 
 interface ApiService {
   id: string
+  slug: string
   titleEn: string
   titleDe: string
   titleSq: string
@@ -15,17 +16,25 @@ interface ApiService {
   descriptionSq: string
   icon: string
   image?: string | null
+  benefitsEn: string[]
+  benefitsDe: string[]
+  benefitsSq: string[]
+  galleryImages: string[]
 }
 
-function localize(item: ApiService, locale: Locale): ServiceItem {
+export function localizeService(item: ApiService, locale: Locale): ServiceItem {
   const title = locale === 'en' ? item.titleEn : locale === 'de' ? item.titleDe : item.titleSq
   const description = locale === 'en' ? item.descriptionEn : locale === 'de' ? item.descriptionDe : item.descriptionSq
+  const benefits = locale === 'en' ? item.benefitsEn : locale === 'de' ? item.benefitsDe : item.benefitsSq
   return {
     id: item.id,
+    slug: item.slug,
     icon: item.icon,
     title,
     description,
     image: item.image,
+    benefits,
+    galleryImages: item.galleryImages,
   }
 }
 
@@ -70,7 +79,7 @@ export function useServiceItems(): UseServiceItemsResult {
   }, [reloadToken])
 
   const locale = (i18n.resolvedLanguage ?? 'sq') as Locale
-  const items = useMemo(() => (state.rawItems ?? []).map((item) => localize(item, locale)), [state.rawItems, locale])
+  const items = useMemo(() => (state.rawItems ?? []).map((item) => localizeService(item, locale)), [state.rawItems, locale])
 
   function retry() {
     setState((prev) => ({ ...prev, isLoading: true, isError: false }))

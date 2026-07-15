@@ -10,10 +10,47 @@
   },
   "stats": {
     "items": [
-      { "value": 120, "suffix": "+", "label": "Abgeschlossene Projekte" },
-      { "value": 98, "suffix": "%", "label": "Zufriedene Kunden" },
-      { "value": 15, "suffix": "+", "label": "Jahre Erfahrung" },
-      { "value": 5000, "suffix": "+", "label": "m² Verwandelte Fläche" }
+      { "value": 4.9, "suffix": "/5", "decimals": 1, "label": "Basierend auf über 99+ zufriedenen Kunden" },
+      { "value": 100, "suffix": "+", "label": "Abgeschlossene Projekte" },
+      { "value": 99, "suffix": "+", "label": "Zufriedene Kunden" },
+      { "value": 10, "suffix": "+", "label": "Jahre Erfahrung" }
+    ]
+  },
+  "servicesOffered": {
+    "eyebrow": "Unsere Fähigkeiten",
+    "title": "AV1 Company Bietet Diese Leistungen An",
+    "subtitle": "Vom Fundament bis zum letzten Feinschliff kümmern wir uns um jedes Detail Ihres Projekts.",
+    "items": [
+      {
+        "icon": "pavers",
+        "title": "Montage von Betonpflastersteinen",
+        "description": "Wir verlegen Betonpflastersteine präzise für langlebige Höfe, Einfahrten und Wege."
+      },
+      {
+        "icon": "walls",
+        "title": "Bau von Dekorativen Mauern",
+        "description": "Wir bauen dekorative Mauern, die jedem Außenbereich Charakter und Struktur verleihen."
+      },
+      {
+        "icon": "fountains",
+        "title": "Steinbrunnen & Natursteinmauern",
+        "description": "Wir fertigen Brunnen und Natursteinmauern mit sorgfältiger, handwerklicher Detailarbeit."
+      },
+      {
+        "icon": "grass",
+        "title": "Rasenanlage",
+        "description": "Wir pflanzen und bereiten hochwertigen Rasen für ein dichtes, dauerhaftes Grün vor."
+      },
+      {
+        "icon": "fences",
+        "title": "Montage von PANEL-3D-Zäunen",
+        "description": "Wir montieren moderne PANEL-3D-Zäune für dauerhafte Sicherheit und Stil."
+      },
+      {
+        "icon": "drainage",
+        "title": "Installation von Drainagesystemen",
+        "description": "Wir installieren Drainagesysteme, die Ihren Garten vor Wasseransammlung schützen."
+      }
     ]
   },
   "services": {
@@ -26,6 +63,14 @@
       "title": "Leistungen konnten nicht geladen werden",
       "message": "Beim Laden unserer Leistungen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       "retry": "Erneut Versuchen"
+    },
+    "detail": {
+      "benefitsTitle": "Vorteile",
+      "galleryTitle": "Galerie",
+      "backLabel": "Alle Leistungen",
+      "notFoundTitle": "Leistung nicht gefunden",
+      "notFoundMessage": "Diese Leistung wurde möglicherweise entfernt, oder die Adresse ist falsch.",
+      "notFoundBack": "Alle Leistungen ansehen"
     }
   },
   "cta": {

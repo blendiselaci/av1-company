@@ -48,6 +48,13 @@ services:
         sync: false
       - key: CLOUDINARY_UPLOAD_FOLDER
         value: av1-company
+      # Public-image watermark (see src/utils/watermark.ts). Points at the
+      # logo asset already uploaded to the project's Cloudinary account
+      # under this public_id — see DEPLOYMENT.md. If production uses a
+      # different Cloudinary account than the one this was uploaded to,
+      # re-upload the logo there first and update this value to match.
+      - key: CLOUDINARY_WATERMARK_PUBLIC_ID
+        value: av1-company/branding/watermark-logo
       - key: SEED_ADMIN_EMAIL
         sync: false
       - key: SEED_ADMIN_PASSWORD

@@ -6,13 +6,6 @@
   "close": "Video schließen",
   "mute": "Stumm schalten",
   "unmute": "Ton einschalten",
-  "categories": {
-    "gardens": "Gärten",
-    "yards": "Höfe",
-    "pools": "Pools",
-    "terraces": "Terrassen",
-    "paving": "Pflasterung"
-  },
   "empty": {
     "title": "Noch keine Videos",
     "message": "Schauen Sie bald wieder vorbei — neue Video-Touren werden regelmäßig hinzugefügt.",

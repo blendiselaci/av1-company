@@ -1,6 +1,7 @@
 import type { ContactMessage, Prisma } from '@prisma/client'
 import { contactRepository } from '../repositories/contact.repository'
 import { sendContactNotification } from './email.service'
+import { sendTelegramNotification } from './telegram.service'
 import { buildPaginationMeta, type PaginationMeta } from '../utils/apiResponse'
 import { toSkipTake } from '../utils/pagination'
 import { NotFoundError } from '../utils/AppError'
@@ -15,9 +16,10 @@ export async function submitContactMessage(input: CreateContactMessageInput): Pr
   const created = await contactRepository.create(input)
 
   // Fire-and-forget: the message is already durably stored, so a failed or
-  // unconfigured email provider must never turn a successful submission into
-  // an error response.
-  sendContactNotification(created).catch((error: unknown) => captureException(error, { context: 'contact-notification' }))
+  // unconfigured notification channel must never turn a successful submission
+  // into an error response.
+  sendContactNotification(created).catch((error: unknown) => captureException(error, { context: 'contact-notification-email' }))
+  sendTelegramNotification(created).catch((error: unknown) => captureException(error, { context: 'contact-notification-telegram' }))
 
   return created
 }

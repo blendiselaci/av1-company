@@ -18,20 +18,14 @@ export const OG_LOCALE_MAP: Record<string, string> = {
   de: 'de_DE',
 }
 
-// Placeholder business details — swap for the real registered contact info before launch.
 export const COMPANY_INFO = {
-  phone: '+355691234567',
-  phoneDisplay: '+355 69 123 4567',
-  email: 'info@av1-company.al',
-  streetAddress: 'Rruga e Kavajës',
-  addressLocality: 'Tirana',
-  postalCode: '1001',
-  addressCountry: 'AL',
+  phone: '+38345644102',
+  phoneDisplay: '+383 45 644 102',
+  email: 'av1.company10@gmail.com',
 } as const
 
-// Real social profile URLs, once created — populates LocalBusiness `sameAs` in
-// structuredData.ts. Left empty rather than filled with placeholder links.
-export const SOCIAL_LINKS: readonly string[] = []
+// Real social profile URLs — populates LocalBusiness `sameAs` in structuredData.ts.
+export const SOCIAL_LINKS: readonly string[] = ['https://www.facebook.com/profile.php?id=61573610664993']
 
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path}`

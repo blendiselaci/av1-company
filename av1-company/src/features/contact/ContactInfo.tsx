@@ -1,6 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { FacebookIcon } from '@/components/icons/FacebookIcon'
 
 const CONTACT_ICONS: Record<string, LucideIcon> = {
   phone: Phone,
@@ -36,7 +37,7 @@ export function ContactInfo({ title, description, cards }: ContactInfoProps) {
           const content = (
             <>
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-av1-green/10 text-av1-green">
-                <Icon size={20} aria-hidden="true" />
+                {card.id === 'facebook' ? <FacebookIcon size={20} /> : <Icon size={20} aria-hidden="true" />}
               </span>
               <div className="min-w-0">
                 <p className="text-xs font-semibold uppercase tracking-widest text-foreground/70">{card.label}</p>
@@ -57,7 +58,11 @@ export function ContactInfo({ title, description, cards }: ContactInfoProps) {
               transition={{ duration: shouldReduceMotion ? 0.01 : 0.5, delay: shouldReduceMotion ? 0 : index * 0.08 }}
             >
               {card.href ? (
-                <a href={card.href} className={className}>
+                <a
+                  href={card.href}
+                  className={className}
+                  {...(card.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
                   {content}
                 </a>
               ) : (

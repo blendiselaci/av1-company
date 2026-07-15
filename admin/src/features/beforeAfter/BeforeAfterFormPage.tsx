@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { beforeAfterApi } from '../../api/resources'
-import { PROJECT_CATEGORIES } from '../../types/models'
+import { useCategories } from '../../hooks/useCategories'
 import { SelectField } from '../../components/form/SelectField'
 import { SwitchField } from '../../components/form/SwitchField'
 import { LocalizedTextField } from '../../components/form/LocalizedTextField'
@@ -34,7 +34,7 @@ const formSchema = z.object({
   completionTimeDe: z.string().trim().min(1, 'Required'),
   completionTimeSq: z.string().trim().min(1, 'Required'),
   location: z.string().trim().min(1, 'Required'),
-  category: z.enum(['GARDENS', 'YARDS', 'POOLS', 'TERRACES', 'PAVING']),
+  categoryId: z.string().min(1, 'Required'),
   beforeImage: imageValueSchema,
   afterImage: imageValueSchema,
   year: z.coerce.number().int().min(1900).max(2100),
@@ -58,7 +58,7 @@ const DEFAULT_VALUES: FormValues = {
   completionTimeDe: '',
   completionTimeSq: '',
   location: '',
-  category: 'GARDENS',
+  categoryId: '',
   beforeImage: null,
   afterImage: null,
   year: new Date().getFullYear(),
@@ -73,6 +73,7 @@ export default function BeforeAfterFormPage() {
   const toast = useToast()
   const queryClient = useQueryClient()
   const [imageErrors, setImageErrors] = useState<{ before?: string; after?: string }>({})
+  const { options: categoryOptions } = useCategories()
 
   const { data: existing, isLoading } = useQuery({
     queryKey: ['before-after', id],
@@ -104,7 +105,7 @@ export default function BeforeAfterFormPage() {
         completionTimeDe: existing.completionTimeDe,
         completionTimeSq: existing.completionTimeSq,
         location: existing.location,
-        category: existing.category,
+        categoryId: existing.categoryId ?? '',
         beforeImage: { url: existing.beforeImage, publicId: existing.beforeImagePublicId },
         afterImage: { url: existing.afterImage, publicId: existing.afterImagePublicId },
         year: existing.year,
@@ -130,7 +131,7 @@ export default function BeforeAfterFormPage() {
         completionTimeDe: values.completionTimeDe,
         completionTimeSq: values.completionTimeSq,
         location: values.location,
-        category: values.category,
+        categoryId: values.categoryId,
         beforeImage: values.beforeImage!.url,
         beforeImagePublicId: values.beforeImage!.publicId,
         afterImage: values.afterImage!.url,
@@ -182,9 +183,10 @@ export default function BeforeAfterFormPage() {
           <SelectField
             label="Category"
             required
-            registration={register('category')}
-            error={errors.category?.message}
-            options={PROJECT_CATEGORIES.map((c) => ({ value: c, label: c }))}
+            registration={register('categoryId')}
+            error={errors.categoryId?.message}
+            options={categoryOptions}
+            placeholder="Select a category"
           />
         </div>
 

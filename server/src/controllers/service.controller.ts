@@ -15,6 +15,11 @@ export const listPublicServices = asyncHandler(async (req: Request, res: Respons
   sendSuccess(res, items, 200, meta)
 })
 
+export const getPublicServiceBySlug = asyncHandler(async (req: Request, res: Response) => {
+  const service = await catalogServiceService.getPublishedServiceBySlug(req.params.slug as string)
+  sendSuccess(res, service)
+})
+
 export const listServices = asyncHandler(async (req: Request, res: Response) => {
   const query = req.query as unknown as AdminListServicesQuery
   const { items, meta } = await catalogServiceService.listAllServices(query)

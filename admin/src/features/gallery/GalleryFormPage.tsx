@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { galleryApi, projectsApi } from '../../api/resources'
-import { PROJECT_CATEGORIES } from '../../types/models'
+import { useCategories } from '../../hooks/useCategories'
 import { SelectField } from '../../components/form/SelectField'
 import { SwitchField } from '../../components/form/SwitchField'
 import { LocalizedTextField } from '../../components/form/LocalizedTextField'
@@ -27,7 +27,7 @@ const formSchema = z.object({
   descriptionEn: z.string().trim().min(1, 'Required'),
   descriptionDe: z.string().trim().min(1, 'Required'),
   descriptionSq: z.string().trim().min(1, 'Required'),
-  category: z.enum(['GARDENS', 'YARDS', 'POOLS', 'TERRACES', 'PAVING']),
+  categoryId: z.string().min(1, 'Required'),
   image: imageValueSchema,
   projectId: z.string(),
   isPublished: z.boolean(),
@@ -43,7 +43,7 @@ const DEFAULT_VALUES: FormValues = {
   descriptionEn: '',
   descriptionDe: '',
   descriptionSq: '',
-  category: 'GARDENS',
+  categoryId: '',
   image: null,
   projectId: '',
   isPublished: true,
@@ -57,6 +57,7 @@ export default function GalleryFormPage() {
   const toast = useToast()
   const queryClient = useQueryClient()
   const [imageError, setImageError] = useState<string | undefined>()
+  const { options: categoryOptions } = useCategories()
 
   const { data: existing, isLoading } = useQuery({
     queryKey: ['gallery', id],
@@ -86,7 +87,7 @@ export default function GalleryFormPage() {
         descriptionEn: existing.descriptionEn,
         descriptionDe: existing.descriptionDe,
         descriptionSq: existing.descriptionSq,
-        category: existing.category,
+        categoryId: existing.categoryId ?? '',
         image: { url: existing.image, publicId: existing.imagePublicId },
         projectId: existing.projectId ?? '',
         isPublished: existing.isPublished,
@@ -104,7 +105,7 @@ export default function GalleryFormPage() {
         descriptionEn: values.descriptionEn,
         descriptionDe: values.descriptionDe,
         descriptionSq: values.descriptionSq,
-        category: values.category,
+        categoryId: values.categoryId,
         image: values.image!.url,
         imagePublicId: values.image!.publicId,
         projectId: values.projectId || null,
@@ -148,9 +149,10 @@ export default function GalleryFormPage() {
           <SelectField
             label="Category"
             required
-            registration={register('category')}
-            error={errors.category?.message}
-            options={PROJECT_CATEGORIES.map((c) => ({ value: c, label: c }))}
+            registration={register('categoryId')}
+            error={errors.categoryId?.message}
+            options={categoryOptions}
+            placeholder="Select a category"
           />
           <SelectField
             label="Linked Project"

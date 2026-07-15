@@ -33,7 +33,7 @@ function toPublic(project: BeforeAfterProject): PublicBeforeAfterProject {
 
 function buildWhere(query: AdminListBeforeAfterQuery): Prisma.BeforeAfterProjectWhereInput {
   const where: Prisma.BeforeAfterProjectWhereInput = {}
-  if (query.category) where.category = query.category
+  if (query.categoryId) where.categoryId = query.categoryId
   if (query.isPublished !== undefined) where.isPublished = query.isPublished
   if (query.search) {
     where.OR = [

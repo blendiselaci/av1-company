@@ -34,19 +34,12 @@ export function buildLocalBusinessSchema() {
     '@type': 'HomeAndConstructionBusiness',
     name: SITE_NAME,
     description:
-      'Premium landscaping and outdoor design studio in Tirana, Albania — gardens, pools, terraces and outdoor living spaces.',
+      'Premium landscaping and outdoor design studio in Kosovo — gardens, pools, terraces and outdoor living spaces.',
     url: SITE_URL,
     image: DEFAULT_OG_IMAGE,
     telephone: COMPANY_INFO.phone,
     email: COMPANY_INFO.email,
     priceRange: '$$',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: COMPANY_INFO.streetAddress,
-      addressLocality: COMPANY_INFO.addressLocality,
-      postalCode: COMPANY_INFO.postalCode,
-      addressCountry: COMPANY_INFO.addressCountry,
-    },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

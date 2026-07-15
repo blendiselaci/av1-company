@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { apiGet } from '@/lib/api'
-import type { GalleryItem, ProjectCategory } from '@/types'
+import type { GalleryItem } from '@/types'
 
 type Locale = 'en' | 'de' | 'sq'
 
@@ -13,7 +13,7 @@ interface ApiGalleryImage {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
-  category: 'GARDENS' | 'YARDS' | 'POOLS' | 'TERRACES' | 'PAVING'
+  categoryId: string | null
   image: string
 }
 
@@ -24,7 +24,7 @@ function localize(item: ApiGalleryImage, locale: Locale): GalleryItem {
     id: item.id,
     title,
     description,
-    category: item.category.toLowerCase() as ProjectCategory,
+    categoryId: item.categoryId,
     image: item.image,
   }
 }

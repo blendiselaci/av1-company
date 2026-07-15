@@ -12,6 +12,10 @@ export const ROUTES = {
   privacy: '/politika-e-privatesise',
 } as const
 
+export function serviceDetailRoute(slug: string): string {
+  return `${ROUTES.services}/${slug}`
+}
+
 export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.home', path: ROUTES.home },
   { labelKey: 'nav.about', path: ROUTES.about },

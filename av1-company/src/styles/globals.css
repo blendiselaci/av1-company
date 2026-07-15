@@ -18,12 +18,14 @@
   --background: var(--color-av1-white);
   --foreground: var(--color-av1-dark);
   --brand: var(--color-av1-green);
+  color-scheme: light;
 }
 
 .dark {
   --background: var(--color-av1-dark);
   --foreground: var(--color-av1-white);
   --brand: var(--color-av1-green-light);
+  color-scheme: dark;
 }
 
 /* Expose the semantic CSS variables above as Tailwind color tokens (bg-background, text-foreground, bg-brand, ...) */
@@ -42,5 +44,23 @@
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
     transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Native <select> dropdown popups render in their own OS-level layer and
+     don't inherit the page's backdrop-blur/opacity styling — only a solid
+     background-color/color on <option> is respected cross-browser. Paired
+     with `color-scheme` above so the rest of the popup chrome (scrollbar,
+     default highlight) also matches the current theme instead of defaulting
+     to the OS light theme regardless of dark mode. */
+  select option {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  select option:hover,
+  select option:focus,
+  select option:checked {
+    background-color: var(--color-av1-green) !important;
+    color: var(--color-av1-white) !important;
   }
 }

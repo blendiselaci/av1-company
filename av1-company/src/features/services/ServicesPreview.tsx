@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Container } from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -8,9 +9,13 @@ import { ServiceCard } from '@/features/services/ServiceCard'
 import { useServiceItems } from '@/features/services/useServiceItems'
 import { ROUTES } from '@/lib/routes'
 
+// The homepage teases a fixed set of 6 services — the full list renders on /sherbimet.
+const HOME_PREVIEW_COUNT = 6
+
 export function ServicesPreview() {
   const { t } = useTranslation('home')
-  const { items, isLoading, isError, retry } = useServiceItems()
+  const { items: allItems, isLoading, isError, retry } = useServiceItems()
+  const items = useMemo(() => allItems.slice(0, HOME_PREVIEW_COUNT), [allItems])
 
   return (
     <section className="bg-background py-24 sm:py-32">
@@ -41,7 +46,7 @@ export function ServicesPreview() {
         )}
 
         <div className="mt-14 flex justify-center">
-          <LinkButton to={ROUTES.services} variant="secondary" size="lg">
+          <LinkButton to={ROUTES.services} variant="primary" size="lg">
             {t('services.viewAll')}
           </LinkButton>
         </div>

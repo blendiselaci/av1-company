@@ -10,10 +10,47 @@
   },
   "stats": {
     "items": [
-      { "value": 120, "suffix": "+", "label": "Projekte të realizuara" },
-      { "value": 98, "suffix": "%", "label": "Klientë të kënaqur" },
-      { "value": 15, "suffix": "+", "label": "Vite eksperiencë" },
-      { "value": 5000, "suffix": "+", "label": "m² hapësira të transformuara" }
+      { "value": 4.9, "suffix": "/5", "decimals": 1, "label": "Bazuar në mbi 99+ klientë të kënaqur" },
+      { "value": 100, "suffix": "+", "label": "Projekte të Realizuara" },
+      { "value": 99, "suffix": "+", "label": "Klientë të Kënaqur" },
+      { "value": 10, "suffix": "+", "label": "Vite Eksperiencë" }
+    ]
+  },
+  "servicesOffered": {
+    "eyebrow": "Aftësitë Tona",
+    "title": "Kompania AV1 ofron këto shërbime",
+    "subtitle": "Nga themeli deri te prekja e fundit, kujdesemi për çdo detaj të projektit tuaj.",
+    "items": [
+      {
+        "icon": "pavers",
+        "title": "Montimin e Kubëzave të Betonit",
+        "description": "Shtrojmë kubëza betoni me precizion për oborre, hyrje dhe shtigje të qëndrueshme."
+      },
+      {
+        "icon": "walls",
+        "title": "Punimin e Mureve Dekoruese",
+        "description": "Ndërtojmë mure dekoruese që shtojnë karakter dhe strukturë çdo hapësire të jashtme."
+      },
+      {
+        "icon": "fountains",
+        "title": "Punimin e Fontanave dhe Mureve me Gur Natyral",
+        "description": "Punojmë fontana dhe mure me gur natyral, të përpunuara me kujdes zejtar."
+      },
+      {
+        "icon": "grass",
+        "title": "Mbjelljen e Barit",
+        "description": "Mbjellim dhe përgatisim bar cilësor për një gjelbërim të dendur dhe të qëndrueshëm."
+      },
+      {
+        "icon": "fences",
+        "title": "Montimin e Rrethojave PANEL 3D",
+        "description": "Montojmë rrethoja moderne PANEL 3D për siguri dhe estetikë afatgjatë."
+      },
+      {
+        "icon": "drainage",
+        "title": "Montimin e Drenazhave",
+        "description": "Instalojmë sisteme drenazhi që mbrojnë oborrin tuaj nga grumbullimi i ujit."
+      }
     ]
   },
   "services": {
@@ -26,6 +63,14 @@
       "title": "Shërbimet nuk mund të ngarkohen",
       "message": "Diçka shkoi keq gjatë ngarkimit të shërbimeve tona. Ju lutemi provoni përsëri.",
       "retry": "Provo Përsëri"
+    },
+    "detail": {
+      "benefitsTitle": "Përfitimet",
+      "galleryTitle": "Galeria",
+      "backLabel": "Të gjitha shërbimet",
+      "notFoundTitle": "Shërbimi nuk u gjet",
+      "notFoundMessage": "Ky shërbim mund të jetë hequr ose adresa është e pasaktë.",
+      "notFoundBack": "Shiko të gjitha shërbimet"
     }
   },
   "cta": {

@@ -25,7 +25,7 @@ function toPublic(video: Video): PublicVideo {
 
 function buildWhere(query: AdminListVideosQuery): Prisma.VideoWhereInput {
   const where: Prisma.VideoWhereInput = {}
-  if (query.category) where.category = query.category
+  if (query.categoryId) where.categoryId = query.categoryId
   if (query.isPublished !== undefined) where.isPublished = query.isPublished
   if (query.search) {
     where.OR = [

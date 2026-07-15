@@ -6,13 +6,6 @@
   "close": "Mbyll videon",
   "mute": "Hesht zërin",
   "unmute": "Aktivizo zërin",
-  "categories": {
-    "gardens": "Kopshte",
-    "yards": "Oborre",
-    "pools": "Pishina",
-    "terraces": "Terasa",
-    "paving": "Shtrime"
-  },
   "empty": {
     "title": "Ende pa video",
     "message": "Kontrolloni së shpejti — turne të reja video shtohen rregullisht.",

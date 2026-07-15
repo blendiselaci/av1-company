@@ -19,7 +19,6 @@ export function BeforeAfterCard({ transformation, beforeLabel, afterLabel, detai
         afterImage={transformation.afterImage}
         beforeLabel={beforeLabel}
         afterLabel={afterLabel}
-        category={transformation.category}
         title={transformation.title}
       />
 

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { apiGet } from '@/lib/api'
-import type { ProjectCategory, Transformation } from '@/types'
+import type { Transformation } from '@/types'
 
 type Locale = 'en' | 'de' | 'sq'
 
@@ -20,7 +20,7 @@ interface ApiBeforeAfterProject {
   completionTimeDe: string
   completionTimeSq: string
   location: string
-  category: 'GARDENS' | 'YARDS' | 'POOLS' | 'TERRACES' | 'PAVING'
+  categoryId: string | null
   beforeImage: string
   afterImage: string
   year: number
@@ -36,7 +36,7 @@ function localize(item: ApiBeforeAfterProject, locale: Locale): Transformation {
     id: item.id,
     title: pick(item, 'title', locale),
     location: item.location,
-    category: item.category.toLowerCase() as ProjectCategory,
+    categoryId: item.categoryId,
     beforeImage: item.beforeImage,
     afterImage: item.afterImage,
     description: pick(item, 'description', locale),

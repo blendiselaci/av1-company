@@ -10,6 +10,7 @@ import { LocalizedTextField } from '../../components/form/LocalizedTextField'
 import { LocalizedTextareaField } from '../../components/form/LocalizedTextareaField'
 import { TextField } from '../../components/form/TextField'
 import { ImageUploadField } from '../../components/media/ImageUploadField'
+import { MultiImageUploadField } from '../../components/media/MultiImageUploadField'
 import { FormPageLayout } from '../../components/shared/FormPageLayout'
 import { FormActions } from '../../components/shared/FormActions'
 import { Spinner } from '../../components/ui/Spinner'
@@ -25,6 +26,11 @@ const formSchema = z.object({
   descriptionSq: z.string().trim().min(1, 'Required'),
   icon: z.string().trim().min(1, 'Required'),
   image: z.object({ url: z.string(), publicId: z.string().nullable() }).nullable(),
+  // One benefit per line — converted to/from string[] at the API boundary.
+  benefitsEn: z.string(),
+  benefitsDe: z.string(),
+  benefitsSq: z.string(),
+  galleryImages: z.array(z.string()).default([]),
   isPublished: z.boolean(),
   order: z.coerce.number().int(),
 })
@@ -40,8 +46,19 @@ const DEFAULT_VALUES: FormValues = {
   descriptionSq: '',
   icon: '',
   image: null,
+  benefitsEn: '',
+  benefitsDe: '',
+  benefitsSq: '',
+  galleryImages: [],
   isPublished: true,
   order: 0,
+}
+
+function linesToList(value: string): string[] {
+  return value
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
 }
 
 export default function ServiceFormPage() {
@@ -76,6 +93,10 @@ export default function ServiceFormPage() {
         descriptionSq: existing.descriptionSq,
         icon: existing.icon,
         image: existing.image ? { url: existing.image, publicId: existing.imagePublicId } : null,
+        benefitsEn: existing.benefitsEn.join('\n'),
+        benefitsDe: existing.benefitsDe.join('\n'),
+        benefitsSq: existing.benefitsSq.join('\n'),
+        galleryImages: existing.galleryImages,
         isPublished: existing.isPublished,
         order: existing.order,
       })
@@ -94,6 +115,10 @@ export default function ServiceFormPage() {
         icon: values.icon,
         image: values.image?.url ?? null,
         imagePublicId: values.image?.publicId ?? null,
+        benefitsEn: linesToList(values.benefitsEn),
+        benefitsDe: linesToList(values.benefitsDe),
+        benefitsSq: linesToList(values.benefitsSq),
+        galleryImages: values.galleryImages,
         isPublished: values.isPublished,
         order: values.order,
       }
@@ -132,7 +157,17 @@ export default function ServiceFormPage() {
           <TextField label="Order" type="number" registration={register('order')} error={errors.order?.message} />
         </div>
 
-        <ImageUploadField name="image" control={control} label="Image (optional)" category="SERVICE" />
+        <ImageUploadField name="image" control={control} label="Hero Image" category="SERVICE" />
+
+        <LocalizedTextareaField
+          label="Benefits (one per line)"
+          baseName="benefits"
+          register={register}
+          errors={errors}
+          rows={4}
+        />
+
+        <MultiImageUploadField name="galleryImages" control={control} label="Additional Gallery Images" category="SERVICE" />
 
         <SwitchField name="isPublished" control={control} label="Published" />
 

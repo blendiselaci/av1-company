@@ -21,12 +21,19 @@ enum Role {
 }
 
 /// Mirrors the frontend's ProjectCategory union type exactly.
+/// Legacy — being phased out in favor of the dynamic Category model below.
+/// Kept temporarily (as an unused nullable column) during the categoryId backfill
+/// so existing rows are never touched by a single blanket migration statement.
 enum ProjectCategory {
   GARDENS
   YARDS
   POOLS
   TERRACES
   PAVING
+  FENCES
+  STAIRS
+  FOUNTAINS
+  WALLS
 }
 
 enum ContactStatus {
@@ -90,6 +97,30 @@ model RefreshToken {
 }
 
 // ────────────────────────────────────────────────────────────────────
+// Categories (dynamic taxonomy — replaces the hardcoded ProjectCategory enum)
+// ────────────────────────────────────────────────────────────────────
+
+model Category {
+  id        String   @id @default(cuid())
+  nameSq    String
+  nameEn    String
+  nameDe    String
+  slug      String   @unique
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  projects      Project[]
+  galleryImages GalleryImage[]
+  videos        Video[]
+  beforeAfters  BeforeAfterProject[]
+
+  @@index([isActive, order])
+  @@map("categories")
+}
+
+// ────────────────────────────────────────────────────────────────────
 // Content
 // ────────────────────────────────────────────────────────────────────
 
@@ -102,7 +133,9 @@ model Project {
   descriptionEn String
   descriptionDe String
   descriptionSq String
-  category    ProjectCategory
+  category    ProjectCategory?
+  categoryId  String?
+  categoryRef Category?       @relation(fields: [categoryId], references: [id])
   location    String
   year        Int
   image       String
@@ -117,7 +150,7 @@ model Project {
   galleryImages GalleryImage[]
   videos        Video[]
 
-  @@index([category, isPublished])
+  @@index([categoryId, isPublished])
   @@index([isPublished, order])
   @@map("projects")
 }
@@ -130,7 +163,9 @@ model GalleryImage {
   descriptionEn String
   descriptionDe String
   descriptionSq String
-  category      ProjectCategory
+  category      ProjectCategory?
+  categoryId    String?
+  categoryRef   Category?       @relation(fields: [categoryId], references: [id])
   image         String
   imagePublicId String?
   projectId     String?
@@ -140,7 +175,7 @@ model GalleryImage {
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
 
-  @@index([category, isPublished])
+  @@index([categoryId, isPublished])
   @@index([isPublished, order])
   @@index([projectId])
   @@map("gallery_images")
@@ -161,7 +196,9 @@ model BeforeAfterProject {
   completionTimeDe    String
   completionTimeSq    String
   location            String
-  category            ProjectCategory
+  category            ProjectCategory?
+  categoryId          String?
+  categoryRef         Category?       @relation(fields: [categoryId], references: [id])
   beforeImage         String
   beforeImagePublicId String?
   afterImage          String
@@ -172,7 +209,7 @@ model BeforeAfterProject {
   createdAt           DateTime        @default(now())
   updatedAt           DateTime        @updatedAt
 
-  @@index([category, isPublished])
+  @@index([categoryId, isPublished])
   @@index([isPublished, order])
   @@map("before_after_projects")
 }
@@ -185,7 +222,9 @@ model Video {
   descriptionEn   String
   descriptionDe   String
   descriptionSq   String
-  category        ProjectCategory
+  category        ProjectCategory?
+  categoryId      String?
+  categoryRef     Category?       @relation(fields: [categoryId], references: [id])
   duration        String
   thumbnail       String
   thumbnailPublicId String?
@@ -198,7 +237,7 @@ model Video {
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 
-  @@index([category, isPublished])
+  @@index([categoryId, isPublished])
   @@index([isPublished, order])
   @@index([projectId])
   @@map("videos")
@@ -250,9 +289,14 @@ model Service {
   descriptionEn String
   descriptionDe String
   descriptionSq String
+  slug          String   @unique
   icon          String
   image         String?
   imagePublicId String?
+  benefitsEn    String[] @default([])
+  benefitsDe    String[] @default([])
+  benefitsSq    String[] @default([])
+  galleryImages String[] @default([])
   isPublished   Boolean  @default(true)
   order         Int      @default(0)
   createdAt     DateTime @default(now())

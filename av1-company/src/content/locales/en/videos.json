@@ -6,13 +6,6 @@
   "close": "Close video",
   "mute": "Mute",
   "unmute": "Unmute",
-  "categories": {
-    "gardens": "Gardens",
-    "yards": "Yards",
-    "pools": "Pools",
-    "terraces": "Terraces",
-    "paving": "Paving"
-  },
   "empty": {
     "title": "No videos yet",
     "message": "Check back soon — new video tours are added regularly.",

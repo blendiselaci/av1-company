@@ -1,11 +1,8 @@
-import { Flower2, Grid3x3, Home as HomeIcon, TreePine, Waves } from 'lucide-react'
+import { ImageOff } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import type { ProjectCategory } from '@/types'
 
-export const CATEGORY_ICONS: Record<ProjectCategory, LucideIcon> = {
-  gardens: Flower2,
-  yards: TreePine,
-  pools: Waves,
-  terraces: HomeIcon,
-  paving: Grid3x3,
-}
+/** Single generic placeholder icon shown when a photo/thumbnail fails to
+ *  load. Categories are dynamic CMS content now (not a fixed enum), so there
+ *  is no longer a stable set of keys to map to per-category icons — a new
+ *  category created in admin must render correctly with zero code changes. */
+export const CATEGORY_FALLBACK_ICON: LucideIcon = ImageOff

@@ -3,10 +3,9 @@ import { motion, useReducedMotion, useTransform } from 'framer-motion'
 import { GripVertical } from 'lucide-react'
 import { LazyImage } from '@/components/ui/LazyImage'
 import { useBeforeAfterDrag } from '@/hooks/useBeforeAfterDrag'
-import { CATEGORY_ICONS } from '@/lib/categoryIcons'
+import { CATEGORY_FALLBACK_ICON } from '@/lib/categoryIcons'
 import { cn } from '@/lib/utils'
 import type { LucideIcon } from 'lucide-react'
-import type { ProjectCategory } from '@/types'
 
 interface SliderImageProps {
   src: string
@@ -42,7 +41,6 @@ interface BeforeAfterSliderProps {
   afterImage: string
   beforeLabel: string
   afterLabel: string
-  category: ProjectCategory
   title: string
   className?: string
 }
@@ -52,7 +50,6 @@ export function BeforeAfterSlider({
   afterImage,
   beforeLabel,
   afterLabel,
-  category,
   title,
   className,
 }: BeforeAfterSliderProps) {
@@ -62,7 +59,7 @@ export function BeforeAfterSlider({
 
   const clipPath = useTransform(position, (value) => `inset(0 ${100 - value}% 0 0)`)
   const handleLeft = useTransform(position, (value) => `${value}%`)
-  const Icon = CATEGORY_ICONS[category]
+  const Icon = CATEGORY_FALLBACK_ICON
 
   return (
     <div

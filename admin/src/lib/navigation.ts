@@ -8,6 +8,7 @@ import {
   Mail,
   MessageSquareQuote,
   Settings,
+  Tags,
   UserCircle,
   Users,
   Video,
@@ -24,6 +25,7 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Dashboard', path: '/', icon: LayoutDashboard },
+  { label: 'Categories', path: '/categories', icon: Tags },
   { label: 'Projects', path: '/projects', icon: FolderKanban },
   { label: 'Gallery', path: '/gallery', icon: Image },
   { label: 'Before/After', path: '/before-after', icon: ArrowLeftRight },

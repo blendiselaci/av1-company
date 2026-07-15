@@ -4,12 +4,7 @@
   "subtitle": "Një koleksion pamjesh nga projektet tona, ku çdo detaj rrëfen historinë e një hapësire të transformuar.",
   "viewAll": "Shiko galerinë e plotë",
   "filters": {
-    "all": "Të gjitha",
-    "gardens": "Kopshte",
-    "yards": "Oborre",
-    "pools": "Pishina",
-    "terraces": "Terasa",
-    "paving": "Shtrime"
+    "all": "Të gjitha"
   },
   "empty": {
     "title": "Ende pa foto në këtë kategori",

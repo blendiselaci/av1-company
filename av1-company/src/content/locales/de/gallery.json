@@ -4,12 +4,7 @@
   "subtitle": "Eine Sammlung von Momenten aus unseren Projekten, in denen jedes Detail die Geschichte eines verwandelten Raums erzählt.",
   "viewAll": "Ganze Galerie Ansehen",
   "filters": {
-    "all": "Alle",
-    "gardens": "Gärten",
-    "yards": "Höfe",
-    "pools": "Pools",
-    "terraces": "Terrassen",
-    "paving": "Pflasterung"
+    "all": "Alle"
   },
   "empty": {
     "title": "Noch keine Fotos in dieser Kategorie",

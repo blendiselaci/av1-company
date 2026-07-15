@@ -10,12 +10,13 @@ import { GalleryFilterTabs } from '@/features/gallery/GalleryFilterTabs'
 import { MasonryGallery } from '@/features/gallery/MasonryGallery'
 import { GalleryLightbox } from '@/features/gallery/GalleryLightbox'
 import { useGalleryItems } from '@/features/gallery/useGalleryItems'
+import { useCategories } from '@/hooks/useCategories'
 import { useMediaOverlay } from '@/hooks/useMediaOverlay'
 import { ROUTES } from '@/lib/routes'
 import { buildBreadcrumbSchema, buildImageGallerySchema } from '@/lib/structuredData'
-import type { ProjectCategory, ProjectFilter } from '@/types'
+import type { ProjectFilter } from '@/types'
 
-type FilterKey = 'all' | ProjectCategory
+type FilterKey = string
 
 export function GalleryPage() {
   const { t } = useTranslation('gallery')
@@ -24,15 +25,15 @@ export function GalleryPage() {
   const [active, setActive] = useState<FilterKey>('all')
 
   const { items, isLoading, isError, retry } = useGalleryItems()
-  const filterLabels = t('filters', { returnObjects: true }) as Record<FilterKey, string>
+  const { categories, getLabel } = useCategories()
 
   const filters: ProjectFilter[] = useMemo(
-    () => (Object.keys(filterLabels) as FilterKey[]).map((key) => ({ key, label: filterLabels[key] })),
-    [filterLabels],
+    () => [{ key: 'all', label: t('filters.all') }, ...categories.map((category) => ({ key: category.id, label: category.label }))],
+    [categories, t],
   )
 
   const filteredItems = useMemo(
-    () => (active === 'all' ? items : items.filter((item) => item.category === active)),
+    () => (active === 'all' ? items : items.filter((item) => item.categoryId === active)),
     [items, active],
   )
 
@@ -79,7 +80,7 @@ export function GalleryPage() {
           ) : isError ? (
             <EmptyState title={t('error.title')} message={t('error.message')} retryLabel={t('error.retry')} onRetry={retry} />
           ) : filteredItems.length > 0 ? (
-            <MasonryGallery items={filteredItems} categoryLabels={filterLabels} onSelect={handleSelect} />
+            <MasonryGallery items={filteredItems} getLabel={getLabel} onSelect={handleSelect} />
           ) : (
             <EmptyState
               title={t('empty.title')}
@@ -93,7 +94,7 @@ export function GalleryPage() {
 
       <GalleryLightbox
         items={filteredItems}
-        categoryLabels={filterLabels}
+        getLabel={getLabel}
         activeIndex={activeIndex}
         onClose={handleClose}
         onNavigate={handleNavigate}

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Plus } from 'lucide-react'
 import { projectsApi } from '../../api/resources'
-import { PROJECT_CATEGORIES, type Project, type ProjectCategory } from '../../types/models'
+import type { Project } from '../../types/models'
+import { useCategories } from '../../hooks/useCategories'
 import { DataTable, type Column } from '../../components/table/DataTable'
 import { Button } from '../../components/ui/Button'
 import { Select } from '../../components/ui/Select'
@@ -23,15 +24,16 @@ export default function ProjectsListPage() {
   const queryClient = useQueryClient()
   const { confirm, dialog } = useConfirm()
   const navigate = useNavigate()
+  const { categories, nameById } = useCategories()
 
   const [page, setPage] = useState(1)
-  const [category, setCategory] = useState<ProjectCategory | ''>('')
+  const [categoryId, setCategoryId] = useState('')
   const [isPublished, setIsPublished] = useState<'' | 'true' | 'false'>('')
 
   const params = {
     page,
     limit: 20,
-    ...(category ? { category } : {}),
+    ...(categoryId ? { categoryId } : {}),
     ...(isPublished ? { isPublished: isPublished === 'true' } : {}),
   }
 
@@ -92,8 +94,7 @@ export default function ProjectsListPage() {
     {
       key: 'category',
       header: 'Category',
-      sortValue: (item) => item.category,
-      render: (item) => <Badge variant="info">{item.category}</Badge>,
+      render: (item) => <Badge variant="info">{(item.categoryId && nameById.get(item.categoryId)) || 'Uncategorized'}</Badge>,
     },
     { key: 'year', header: 'Year', sortValue: (item) => item.year, render: (item) => item.year },
     { key: 'order', header: 'Order', sortValue: (item) => item.order, render: (item) => item.order },
@@ -128,18 +129,18 @@ export default function ProjectsListPage() {
         filters={
           <>
             <Select
-              value={category}
+              value={categoryId}
               onChange={(event) => {
-                setCategory(event.target.value as ProjectCategory | '')
+                setCategoryId(event.target.value)
                 setPage(1)
               }}
               aria-label="Filter by category"
               className="w-auto"
             >
               <option value="">All categories</option>
-              {PROJECT_CATEGORIES.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.nameEn}
                 </option>
               ))}
             </Select>

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { apiGet } from '@/lib/api'
-import type { Project, ProjectCategory } from '@/types'
+import type { Project } from '@/types'
 
 type Locale = 'en' | 'de' | 'sq'
 
@@ -13,7 +13,7 @@ interface ApiProject {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
-  category: 'GARDENS' | 'YARDS' | 'POOLS' | 'TERRACES' | 'PAVING'
+  categoryId: string | null
   location: string
   image: string
 }
@@ -25,7 +25,7 @@ function localize(item: ApiProject, locale: Locale): Project {
     id: item.id,
     title,
     description,
-    category: item.category.toLowerCase() as ProjectCategory,
+    categoryId: item.categoryId,
     location: item.location,
     image: item.image,
   }

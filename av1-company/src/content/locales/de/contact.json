@@ -6,10 +6,9 @@
     "title": "Lassen Sie Uns Über Ihr Projekt Sprechen",
     "description": "Erreichen Sie uns per Telefon, E-Mail oder über das Formular unten — unser Team antwortet in der Regel innerhalb von 24 Stunden mit den nächsten Schritten und einem kostenlosen Kostenvoranschlag.",
     "cards": [
-      { "id": "phone", "label": "Telefon", "value": "+355 69 123 4567", "href": "tel:+355691234567" },
-      { "id": "email", "label": "E-Mail", "value": "info@av1-company.al", "href": "mailto:info@av1-company.al" },
-      { "id": "location", "label": "Standort", "value": "Rruga e Kavajës, Tirana 1001, Albanien" },
-      { "id": "hours", "label": "Öffnungszeiten", "value": "Mo – Sa: 08:00 – 18:00" }
+      { "id": "phone", "label": "Telefon", "value": "+383 45 644 102", "href": "tel:+38345644102" },
+      { "id": "email", "label": "E-Mail", "value": "av1.company10@gmail.com", "href": "mailto:av1.company10@gmail.com" },
+      { "id": "facebook", "label": "Facebook", "value": "AV1 Company", "href": "https://www.facebook.com/profile.php?id=61573610664993" }
     ]
   },
   "form": {
@@ -20,11 +19,16 @@
     "service": "Leistung",
     "servicePlaceholder": "Leistung auswählen",
     "services": [
-      "Gartendesign",
-      "Pflasterung & Außenanlagen",
-      "Pools & Erholungsbereiche",
-      "Terrassen & Strukturen",
-      "Grünflächenpflege",
+      "Höfe mit Pflastersteinen/Platten",
+      "Mit Pflastersteinen Dekorierte Mauern",
+      "Natursteinmauern",
+      "Betonbecken-Dekoration",
+      "Pool-Aushub",
+      "Springbrunnen",
+      "Zaun",
+      "Treppe",
+      "Rasenanlage",
+      "Installation von Drainagesystemen",
       "Sonstiges"
     ],
     "message": "Nachricht",
@@ -41,10 +45,5 @@
       "privacy": "Sie müssen der Datenschutzerklärung zustimmen, um fortzufahren",
       "submit": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
     }
-  },
-  "map": {
-    "addressLabel": "Unser Büro",
-    "address": "Rruga e Kavajës, Tirana 1001, Albanien",
-    "button": "In Google Maps Öffnen"
   }
 }

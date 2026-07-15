@@ -1,9 +1,5 @@
 export type Role = 'ADMIN' | 'EDITOR'
 
-export type ProjectCategory = 'GARDENS' | 'YARDS' | 'POOLS' | 'TERRACES' | 'PAVING'
-
-export const PROJECT_CATEGORIES: ProjectCategory[] = ['GARDENS', 'YARDS', 'POOLS', 'TERRACES', 'PAVING']
-
 export type ContactStatus = 'NEW' | 'READ' | 'REPLIED'
 
 export const CONTACT_STATUSES: ContactStatus[] = ['NEW', 'READ', 'REPLIED']
@@ -61,7 +57,7 @@ export interface Project extends Timestamps {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
-  category: ProjectCategory
+  categoryId: string | null
   location: string
   year: number
   image: string
@@ -80,7 +76,7 @@ export interface GalleryImage extends Timestamps {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
-  category: ProjectCategory
+  categoryId: string | null
   image: string
   imagePublicId: string | null
   projectId: string | null
@@ -103,7 +99,7 @@ export interface BeforeAfterProject extends Timestamps {
   completionTimeDe: string
   completionTimeSq: string
   location: string
-  category: ProjectCategory
+  categoryId: string | null
   beforeImage: string
   beforeImagePublicId: string | null
   afterImage: string
@@ -121,7 +117,7 @@ export interface Video extends Timestamps {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
-  category: ProjectCategory
+  categoryId: string | null
   duration: string
   thumbnail: string
   thumbnailPublicId: string | null
@@ -140,9 +136,14 @@ export interface Service extends Timestamps {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
+  slug: string
   icon: string
   image: string | null
   imagePublicId: string | null
+  benefitsEn: string[]
+  benefitsDe: string[]
+  benefitsSq: string[]
+  galleryImages: string[]
   isPublished: boolean
   order: number
 }
@@ -161,6 +162,16 @@ export interface Testimonial extends Timestamps {
   date: string
   isPublished: boolean
   order: number
+}
+
+export interface Category extends Timestamps {
+  id: string
+  nameSq: string
+  nameEn: string
+  nameDe: string
+  slug: string
+  order: number
+  isActive: boolean
 }
 
 export interface Faq extends Timestamps {

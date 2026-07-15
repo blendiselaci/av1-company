@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { ProjectCategory } from '@prisma/client'
 import { categoryQuerySchema, optionalBooleanQuery, paginationQuerySchema } from './common.validator'
 
 export const createGalleryImageSchema = z.object({
@@ -9,7 +8,7 @@ export const createGalleryImageSchema = z.object({
   descriptionEn: z.string().trim().min(1),
   descriptionDe: z.string().trim().min(1),
   descriptionSq: z.string().trim().min(1),
-  category: z.nativeEnum(ProjectCategory),
+  categoryId: z.string().min(1, 'Category is required'),
   image: z.string().url('image must be a valid URL'),
   imagePublicId: z.string().nullable().optional(),
   projectId: z.string().nullable().optional(),

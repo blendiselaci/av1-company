@@ -13,6 +13,10 @@ class ServiceRepository extends BaseRepository<
   constructor() {
     super(prisma.service)
   }
+
+  findBySlug(slug: string): Promise<Service | null> {
+    return prisma.service.findUnique({ where: { slug } })
+  }
 }
 
 export const serviceRepository = new ServiceRepository()

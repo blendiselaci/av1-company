@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Plus } from 'lucide-react'
 import { beforeAfterApi } from '../../api/resources'
-import { PROJECT_CATEGORIES, type BeforeAfterProject, type ProjectCategory } from '../../types/models'
+import type { BeforeAfterProject } from '../../types/models'
+import { useCategories } from '../../hooks/useCategories'
 import { DataTable, type Column } from '../../components/table/DataTable'
 import { Button } from '../../components/ui/Button'
 import { Select } from '../../components/ui/Select'
@@ -23,11 +24,12 @@ export default function BeforeAfterListPage() {
   const queryClient = useQueryClient()
   const { confirm, dialog } = useConfirm()
   const navigate = useNavigate()
+  const { categories, nameById } = useCategories()
 
   const [page, setPage] = useState(1)
-  const [category, setCategory] = useState<ProjectCategory | ''>('')
+  const [categoryId, setCategoryId] = useState('')
 
-  const params = { page, limit: 20, ...(category ? { category } : {}) }
+  const params = { page, limit: 20, ...(categoryId ? { categoryId } : {}) }
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ['before-after', params],
@@ -71,7 +73,11 @@ export default function BeforeAfterListPage() {
     },
     { key: 'title', header: 'Title', sortValue: (item) => item.titleEn, render: (item) => item.titleEn },
     { key: 'location', header: 'Location', sortValue: (item) => item.location, render: (item) => item.location },
-    { key: 'category', header: 'Category', sortValue: (item) => item.category, render: (item) => <Badge variant="info">{item.category}</Badge> },
+    {
+      key: 'category',
+      header: 'Category',
+      render: (item) => <Badge variant="info">{(item.categoryId && nameById.get(item.categoryId)) || 'Uncategorized'}</Badge>,
+    },
     { key: 'year', header: 'Year', sortValue: (item) => item.year, render: (item) => item.year },
     { key: 'status', header: 'Status', render: (item) => <StatusBadge isPublished={item.isPublished} /> },
   ]
@@ -103,18 +109,18 @@ export default function BeforeAfterListPage() {
         rowActions={(item) => <RowActions onEdit={() => navigate(`/before-after/${item.id}`)} onDelete={() => handleDelete(item)} />}
         filters={
           <Select
-            value={category}
+            value={categoryId}
             onChange={(event) => {
-              setCategory(event.target.value as ProjectCategory | '')
+              setCategoryId(event.target.value)
               setPage(1)
             }}
             aria-label="Filter by category"
             className="w-auto"
           >
             <option value="">All categories</option>
-            {PROJECT_CATEGORIES.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.nameEn}
               </option>
             ))}
           </Select>

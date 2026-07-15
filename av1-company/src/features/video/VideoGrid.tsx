@@ -1,14 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { VideoCard } from '@/features/video/VideoCard'
-import type { ProjectCategory, VideoItem } from '@/types'
+import type { VideoItem } from '@/types'
 
 interface VideoGridProps {
   videos: VideoItem[]
-  categoryLabels: Record<ProjectCategory, string>
+  getLabel: (categoryId: string | null | undefined) => string
   onPlay: (index: number) => void
 }
 
-export function VideoGrid({ videos, categoryLabels, onPlay }: VideoGridProps) {
+export function VideoGrid({ videos, getLabel, onPlay }: VideoGridProps) {
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -25,7 +25,7 @@ export function VideoGrid({ videos, categoryLabels, onPlay }: VideoGridProps) {
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <VideoCard video={video} categoryLabel={categoryLabels[video.category]} index={index} onPlay={onPlay} />
+          <VideoCard video={video} categoryLabel={getLabel(video.categoryId)} index={index} onPlay={onPlay} />
         </motion.article>
       ))}
     </div>

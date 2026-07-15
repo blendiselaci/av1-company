@@ -25,6 +25,13 @@ const envSchema = z.object({
   CLOUDINARY_API_SECRET: z.string().default('placeholder-api-secret'),
   CLOUDINARY_UPLOAD_FOLDER: z.string().default('av1-company'),
 
+  // Public-image watermark (see src/utils/watermark.ts). Unset by default —
+  // upload the AV1-Company logo to Cloudinary once as its own asset (PNG,
+  // transparent background) and set this to that asset's public_id to turn
+  // watermarking on. Left unset, every image URL is built exactly as before
+  // (no overlay), so a missing logo asset can never break image delivery.
+  CLOUDINARY_WATERMARK_PUBLIC_ID: z.string().optional(),
+
   // Email notifications (contact form submissions). 'none' (default) just logs —
   // see src/services/email.service.ts. Provider credentials are all optional
   // and only read once EMAIL_PROVIDER selects that provider.
@@ -36,6 +43,12 @@ const envSchema = z.object({
   SMTP_PORT: z.coerce.number().int().positive().optional(),
   SMTP_USER: z.string().optional(),
   SMTP_PASSWORD: z.string().optional(),
+
+  // Instant Telegram notification for new contact-form submissions — see
+  // src/services/telegram.service.ts. Both vars must be set for delivery;
+  // if either is missing it just logs instead (same fallback as email above).
+  TELEGRAM_BOT_TOKEN: z.string().optional(),
+  TELEGRAM_CHAT_ID: z.string().optional(),
 
   SEED_ADMIN_EMAIL: z.string().email().default('admin@av1-company.al'),
   SEED_ADMIN_PASSWORD: z.string().min(8).default('ChangeMe123!'),

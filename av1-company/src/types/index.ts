@@ -6,30 +6,32 @@ export interface NavItem {
 export interface StatItem {
   value: number
   suffix?: string
+  decimals?: number
   label: string
 }
 
 export interface ServiceItem {
   id: string
+  slug: string
   icon: string
   title: string
   description: string
   image?: string | null
+  benefits: string[]
+  galleryImages: string[]
 }
-
-export type ProjectCategory = 'gardens' | 'yards' | 'pools' | 'terraces' | 'paving'
 
 export interface Project {
   id: string
   title: string
-  category: ProjectCategory
+  categoryId: string | null
   location: string
   description: string
   image: string
 }
 
 export interface ProjectFilter {
-  key: 'all' | ProjectCategory
+  key: string
   label: string
 }
 
@@ -37,7 +39,7 @@ export interface Transformation {
   id: string
   title: string
   location: string
-  category: ProjectCategory
+  categoryId: string | null
   beforeImage: string
   afterImage: string
   description: string
@@ -49,7 +51,7 @@ export interface Transformation {
 export interface GalleryItem {
   id: string
   title: string
-  category: ProjectCategory
+  categoryId: string | null
   image: string
   description: string
 }
@@ -57,7 +59,7 @@ export interface GalleryItem {
 export interface VideoItem {
   id: string
   title: string
-  category: ProjectCategory
+  categoryId: string | null
   duration: string
   thumbnail: string
   videoUrl: string

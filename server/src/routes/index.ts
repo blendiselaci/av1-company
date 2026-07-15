@@ -2,6 +2,7 @@ import { Router } from 'express'
 import authRoutes from './auth.routes'
 import mediaRoutes from './media.routes'
 import userRoutes from './user.routes'
+import categoryRoutes from './category.routes'
 import projectRoutes from './project.routes'
 import galleryRoutes from './gallery.routes'
 import beforeAfterRoutes from './beforeAfter.routes'
@@ -17,6 +18,7 @@ const router = Router()
 router.use('/auth', authRoutes)
 router.use('/media', mediaRoutes)
 router.use('/users', userRoutes)
+router.use('/categories', categoryRoutes)
 router.use('/projects', projectRoutes)
 router.use('/gallery', galleryRoutes)
 router.use('/before-after', beforeAfterRoutes)

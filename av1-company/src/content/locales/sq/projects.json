@@ -5,12 +5,7 @@
   "viewProject": "Shiko Projektin",
   "viewAll": "Shiko të gjitha projektet",
   "filters": {
-    "all": "Të gjitha",
-    "gardens": "Kopshte",
-    "yards": "Oborre",
-    "pools": "Pishina",
-    "terraces": "Terasa",
-    "paving": "Shtrime"
+    "all": "Të gjitha"
   },
   "empty": {
     "title": "Ende pa projekte në këtë kategori",

@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 import { LazyImage } from '@/components/ui/LazyImage'
-import { CATEGORY_ICONS } from '@/lib/categoryIcons'
+import { CATEGORY_FALLBACK_ICON } from '@/lib/categoryIcons'
 import { cn } from '@/lib/utils'
 import type { GalleryItem } from '@/types'
 
@@ -14,7 +14,7 @@ interface GalleryCardProps {
 
 function GalleryCardComponent({ item, categoryLabel, heightClass, index, onOpen }: GalleryCardProps) {
   const [errored, setErrored] = useState(false)
-  const Icon = CATEGORY_ICONS[item.category]
+  const Icon = CATEGORY_FALLBACK_ICON
 
   return (
     <button

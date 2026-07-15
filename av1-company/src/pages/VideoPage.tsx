@@ -8,10 +8,10 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { VideoGrid } from '@/features/video/VideoGrid'
 import { VideoModal } from '@/features/video/VideoModal'
 import { useVideoItems } from '@/features/video/useVideoItems'
+import { useCategories } from '@/hooks/useCategories'
 import { useMediaOverlay } from '@/hooks/useMediaOverlay'
 import { ROUTES } from '@/lib/routes'
 import { buildBreadcrumbSchema } from '@/lib/structuredData'
-import type { ProjectCategory } from '@/types'
 
 export function VideoPage() {
   const { t } = useTranslation('videos')
@@ -19,7 +19,7 @@ export function VideoPage() {
   const { t: tNav } = useTranslation()
 
   const { items, isLoading, isError, retry } = useVideoItems()
-  const categoryLabels = t('categories', { returnObjects: true }) as Record<ProjectCategory, string>
+  const { getLabel } = useCategories()
 
   const { activeIndex, open: handlePlay, close: handleClose } = useMediaOverlay(items.length)
 
@@ -41,7 +41,7 @@ export function VideoPage() {
           ) : isError ? (
             <EmptyState title={t('error.title')} message={t('error.message')} retryLabel={t('error.retry')} onRetry={retry} />
           ) : items.length > 0 ? (
-            <VideoGrid videos={items} categoryLabels={categoryLabels} onPlay={handlePlay} />
+            <VideoGrid videos={items} getLabel={getLabel} onPlay={handlePlay} />
           ) : (
             <EmptyState title={t('empty.title')} message={t('empty.message')} retryLabel={t('empty.retry')} onRetry={retry} />
           )}

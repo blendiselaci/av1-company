@@ -1,8 +1,9 @@
 import { Readable } from 'node:stream'
-import type { UploadApiOptions, UploadApiResponse } from 'cloudinary'
+import type { TransformationOptions, UploadApiOptions, UploadApiResponse } from 'cloudinary'
 import { cloudinary } from '../config/cloudinary'
 import { env } from '../config/env'
 import { logger } from '../utils/logger'
+import { watermarkTransformation } from '../utils/watermark'
 
 export interface UploadResult {
   url: string
@@ -81,18 +82,26 @@ export interface OptimizedUrlOptions {
 /** Builds a transformation URL by naming convention only (no network call) —
  *  Cloudinary rewrites the asset on first request and caches it at the CDN edge
  *  from then on. `fetch_format`/`quality: 'auto'` picks the best format (e.g. AVIF/
- *  WebP) and compression for the requesting browser automatically. */
+ *  WebP) and compression for the requesting browser automatically.
+ *
+ *  Every image (not video) delivered through this function also gets the
+ *  AV1-Company watermark overlay — see utils/watermark.ts — so any public
+ *  image (project/gallery/before-after/service/testimonial photos, video
+ *  thumbnails) is watermarked automatically with no per-call-site changes. */
 export function getOptimizedUrl(publicId: string, resourceType: AssetResourceType, options: OptimizedUrlOptions = {}): string {
   const { width, height, crop } = options
-  return cloudinary.url(publicId, {
-    secure: true,
-    resource_type: resourceType,
+  const base: TransformationOptions = {
     fetch_format: 'auto',
     quality: 'auto',
     ...(width !== undefined ? { width } : {}),
     ...(height !== undefined ? { height } : {}),
     ...(width !== undefined || height !== undefined ? { crop: crop ?? 'limit' } : {}),
-  })
+  }
+
+  const watermark = resourceType === 'image' ? watermarkTransformation() : null
+  const transformation = watermark ? [base, watermark] : [base]
+
+  return cloudinary.url(publicId, { secure: true, resource_type: resourceType, transformation })
 }
 
 export interface ResponsiveVariants {

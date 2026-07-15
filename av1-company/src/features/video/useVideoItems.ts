@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { apiGet } from '@/lib/api'
-import type { ProjectCategory, VideoItem } from '@/types'
+import type { VideoItem } from '@/types'
 
 type Locale = 'en' | 'de' | 'sq'
 
@@ -13,7 +13,7 @@ interface ApiVideo {
   descriptionEn: string
   descriptionDe: string
   descriptionSq: string
-  category: 'GARDENS' | 'YARDS' | 'POOLS' | 'TERRACES' | 'PAVING'
+  categoryId: string | null
   duration: string
   thumbnail: string
   videoUrl: string
@@ -26,7 +26,7 @@ function localize(item: ApiVideo, locale: Locale): VideoItem {
   return {
     id: item.id,
     title,
-    category: item.category.toLowerCase() as ProjectCategory,
+    categoryId: item.categoryId,
     duration: item.duration,
     thumbnail: item.thumbnail,
     videoUrl: item.videoUrl,

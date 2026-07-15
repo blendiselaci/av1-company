@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { ProjectCategory } from '@prisma/client'
 import { categoryQuerySchema, optionalBooleanQuery, paginationQuerySchema } from './common.validator'
 
 export const createVideoSchema = z.object({
@@ -9,7 +8,7 @@ export const createVideoSchema = z.object({
   descriptionEn: z.string().trim().min(1),
   descriptionDe: z.string().trim().min(1),
   descriptionSq: z.string().trim().min(1),
-  category: z.nativeEnum(ProjectCategory),
+  categoryId: z.string().min(1, 'Category is required'),
   duration: z.string().trim().min(1),
   thumbnail: z.string().url('thumbnail must be a valid URL'),
   thumbnailPublicId: z.string().nullable().optional(),

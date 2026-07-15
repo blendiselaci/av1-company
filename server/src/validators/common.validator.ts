@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { ProjectCategory } from '@prisma/client'
 import { PAGINATION } from '../config/constants'
 
 export const idParamSchema = z.object({
@@ -18,5 +17,5 @@ export const optionalBooleanQuery = z
   .transform((value) => (value === undefined ? undefined : value === 'true'))
 
 export const categoryQuerySchema = z.object({
-  category: z.nativeEnum(ProjectCategory).optional(),
+  categoryId: z.string().optional(),
 })

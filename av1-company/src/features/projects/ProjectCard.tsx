@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { LazyImage } from '@/components/ui/LazyImage'
 import { ROUTES } from '@/lib/routes'
 import { cn } from '@/lib/utils'
-import { CATEGORY_ICONS } from '@/lib/categoryIcons'
+import { CATEGORY_FALLBACK_ICON } from '@/lib/categoryIcons'
 import type { Project } from '@/types'
 
 interface ProjectCardProps {
@@ -16,7 +16,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, categoryLabel, viewLabel, className }: ProjectCardProps) {
   const [errored, setErrored] = useState(false)
-  const Icon = CATEGORY_ICONS[project.category]
+  const Icon = CATEGORY_FALLBACK_ICON
 
   return (
     <Link
@@ -40,7 +40,7 @@ export function ProjectCard({ project, categoryLabel, viewLabel, className }: Pr
 
       <div className="relative z-10 p-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-av1-green-light">
-          {categoryLabel} · {project.location}
+          {categoryLabel ? `${categoryLabel} · ` : ''}{project.location}
         </p>
         <h3 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">{project.title}</h3>
 

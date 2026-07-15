@@ -187,6 +187,12 @@ Both `av1-company/vercel.json` and `admin/vercel.json` are already configured
    stay `av1-company`.
 4. That's it — every upload call in `upload.service.ts` already targets
    whatever these three point at; nothing else changes.
+5. **Optional — logo watermark on public images:** upload the AV1-Company
+   logo to this same Cloudinary account as its own image asset (Media
+   Library → Upload), then set `CLOUDINARY_WATERMARK_PUBLIC_ID` to that
+   asset's public_id (e.g. `av1-company/branding/watermark-logo`). Left
+   unset, images are delivered without a watermark — see
+   `src/utils/watermark.ts`.
 
 ### 3e. Custom domain
 

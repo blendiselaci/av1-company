@@ -11,6 +11,7 @@ import { HomePage } from '@/pages/HomePage'
 // so the initial bundle only pays for what a first-time visitor actually sees.
 const AboutPage = lazy(() => import('@/pages/AboutPage').then((m) => ({ default: m.AboutPage })))
 const ServicesPage = lazy(() => import('@/pages/ServicesPage').then((m) => ({ default: m.ServicesPage })))
+const ServiceDetailPage = lazy(() => import('@/pages/ServiceDetailPage').then((m) => ({ default: m.ServiceDetailPage })))
 const ProjectsPage = lazy(() => import('@/pages/ProjectsPage').then((m) => ({ default: m.ProjectsPage })))
 const TransformationsPage = lazy(() =>
   import('@/pages/TransformationsPage').then((m) => ({ default: m.TransformationsPage })),
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: ROUTES.about.slice(1), element: <AboutPage /> },
       { path: ROUTES.services.slice(1), element: <ServicesPage /> },
+      { path: `${ROUTES.services.slice(1)}/:slug`, element: <ServiceDetailPage /> },
       { path: ROUTES.projects.slice(1), element: <ProjectsPage /> },
       { path: ROUTES.transformations.slice(1), element: <TransformationsPage /> },
       { path: ROUTES.gallery.slice(1), element: <GalleryPage /> },

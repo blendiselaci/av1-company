@@ -4,12 +4,7 @@
   "subtitle": "A collection of moments from our projects, where every detail tells the story of a transformed space.",
   "viewAll": "View Full Gallery",
   "filters": {
-    "all": "All",
-    "gardens": "Gardens",
-    "yards": "Yards",
-    "pools": "Pools",
-    "terraces": "Terraces",
-    "paving": "Paving"
+    "all": "All"
   },
   "empty": {
     "title": "No photos in this category yet",

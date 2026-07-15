@@ -5,12 +5,7 @@
   "viewProject": "View Project",
   "viewAll": "View All Projects",
   "filters": {
-    "all": "All",
-    "gardens": "Gardens",
-    "yards": "Yards",
-    "pools": "Pools",
-    "terraces": "Terraces",
-    "paving": "Paving"
+    "all": "All"
   },
   "empty": {
     "title": "No projects in this category yet",

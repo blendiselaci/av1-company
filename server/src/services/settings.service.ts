@@ -6,11 +6,11 @@ import type { UpdateSettingsInput } from '../validators/settings.validator'
  *  seeded yet, so `GET /settings` never 404s on a brand-new deployment. */
 const DEFAULT_SETTINGS: Omit<Settings, 'id' | 'createdAt' | 'updatedAt'> = {
   companyName: 'AV1-Company',
-  phone: '+355 69 123 4567',
-  email: 'info@av1-company.al',
-  address: 'Rruga e Kavajës, Tirana 1001, Albania',
+  phone: '+383 45 644 102',
+  email: 'av1.company10@gmail.com',
+  address: 'Rruga e Kavajës, Peja 1001, Kosovo',
   workingHours: 'Mon – Sat: 08:00 – 18:00',
-  facebookUrl: null,
+  facebookUrl: 'https://www.facebook.com/profile.php?id=61573610664993',
   instagramUrl: null,
   mapsUrl: null,
 }

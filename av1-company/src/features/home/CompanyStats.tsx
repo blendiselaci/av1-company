@@ -25,6 +25,7 @@ export function CompanyStats() {
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}
+                decimals={stat.decimals}
                 className="block text-4xl font-bold tracking-tight text-white sm:text-5xl"
               />
               <p className="mt-3 text-sm font-medium uppercase tracking-wide text-white/60">{stat.label}</p>

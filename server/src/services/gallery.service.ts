@@ -23,7 +23,7 @@ function toPublic(image: GalleryImage): PublicGalleryImage {
 
 function buildWhere(query: AdminListGalleryQuery): Prisma.GalleryImageWhereInput {
   const where: Prisma.GalleryImageWhereInput = {}
-  if (query.category) where.category = query.category
+  if (query.categoryId) where.categoryId = query.categoryId
   if (query.isPublished !== undefined) where.isPublished = query.isPublished
   if (query.search) {
     where.OR = [

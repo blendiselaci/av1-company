@@ -16,11 +16,9 @@ const formSchema = z.object({
   companyName: z.string().trim().min(1, 'Required'),
   phone: z.string().trim().min(1, 'Required'),
   email: z.string().trim().email('Enter a valid email address'),
-  address: z.string().trim().min(1, 'Required'),
   workingHours: z.string().trim().min(1, 'Required'),
   facebookUrl: z.string().trim().url('Enter a valid URL').or(z.literal('')),
   instagramUrl: z.string().trim().url('Enter a valid URL').or(z.literal('')),
-  mapsUrl: z.string().trim().url('Enter a valid URL').or(z.literal('')),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -44,11 +42,9 @@ export default function SettingsPage() {
         companyName: data.companyName,
         phone: data.phone,
         email: data.email,
-        address: data.address,
         workingHours: data.workingHours,
         facebookUrl: data.facebookUrl ?? '',
         instagramUrl: data.instagramUrl ?? '',
-        mapsUrl: data.mapsUrl ?? '',
       })
     }
   }, [data, reset])
@@ -86,13 +82,11 @@ export default function SettingsPage() {
           <TextField label="Email" type="email" required registration={register('email')} error={errors.email?.message} />
         </div>
 
-        <TextField label="Address" required registration={register('address')} error={errors.address?.message} />
         <TextField label="Working Hours" required registration={register('workingHours')} error={errors.workingHours?.message} placeholder="Mon – Sat: 08:00 – 18:00" />
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2">
           <TextField label="Facebook URL" registration={register('facebookUrl')} error={errors.facebookUrl?.message} />
           <TextField label="Instagram URL" registration={register('instagramUrl')} error={errors.instagramUrl?.message} />
-          <TextField label="Google Maps URL" registration={register('mapsUrl')} error={errors.mapsUrl?.message} />
         </div>
 
         <div className="flex justify-end border-t border-border pt-4">

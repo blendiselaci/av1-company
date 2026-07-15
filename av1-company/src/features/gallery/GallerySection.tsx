@@ -9,11 +9,12 @@ import { GalleryFilterTabs } from '@/features/gallery/GalleryFilterTabs'
 import { MasonryGallery } from '@/features/gallery/MasonryGallery'
 import { GalleryLightbox } from '@/features/gallery/GalleryLightbox'
 import { useGalleryItems } from '@/features/gallery/useGalleryItems'
+import { useCategories } from '@/hooks/useCategories'
 import { useMediaOverlay } from '@/hooks/useMediaOverlay'
 import { ROUTES } from '@/lib/routes'
-import type { ProjectCategory, ProjectFilter } from '@/types'
+import type { ProjectFilter } from '@/types'
 
-type FilterKey = 'all' | ProjectCategory
+type FilterKey = string
 
 // The homepage only teases the gallery — the full set renders on the dedicated
 // /galeria page (GalleryPage), which reuses this same item list unsliced.
@@ -25,15 +26,15 @@ export function GallerySection() {
 
   const { items: allItems, isLoading, isError, retry } = useGalleryItems()
   const items = useMemo(() => allItems.slice(0, HOME_PREVIEW_COUNT), [allItems])
-  const filterLabels = t('filters', { returnObjects: true }) as Record<FilterKey, string>
+  const { categories, getLabel } = useCategories()
 
   const filters: ProjectFilter[] = useMemo(
-    () => (Object.keys(filterLabels) as FilterKey[]).map((key) => ({ key, label: filterLabels[key] })),
-    [filterLabels],
+    () => [{ key: 'all', label: t('filters.all') }, ...categories.map((category) => ({ key: category.id, label: category.label }))],
+    [categories, t],
   )
 
   const filteredItems = useMemo(
-    () => (active === 'all' ? items : items.filter((item) => item.category === active)),
+    () => (active === 'all' ? items : items.filter((item) => item.categoryId === active)),
     [items, active],
   )
 
@@ -60,7 +61,7 @@ export function GallerySection() {
           ) : isError ? (
             <EmptyState title={t('error.title')} message={t('error.message')} retryLabel={t('error.retry')} onRetry={retry} />
           ) : filteredItems.length > 0 ? (
-            <MasonryGallery items={filteredItems} categoryLabels={filterLabels} onSelect={handleSelect} />
+            <MasonryGallery items={filteredItems} getLabel={getLabel} onSelect={handleSelect} />
           ) : (
             <EmptyState
               title={t('empty.title')}
@@ -72,7 +73,7 @@ export function GallerySection() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <LinkButton to={ROUTES.gallery} variant="secondary" size="lg">
+          <LinkButton to={ROUTES.gallery} variant="primary" size="lg">
             {t('viewAll')}
           </LinkButton>
         </div>
@@ -80,7 +81,7 @@ export function GallerySection() {
 
       <GalleryLightbox
         items={filteredItems}
-        categoryLabels={filterLabels}
+        getLabel={getLabel}
         activeIndex={activeIndex}
         onClose={handleClose}
         onNavigate={handleNavigate}

@@ -9,11 +9,12 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { ProjectFilterBar } from '@/features/projects/ProjectFilterBar'
 import { ProjectsGrid } from '@/features/projects/ProjectsGrid'
 import { useProjectItems } from '@/features/projects/useProjectItems'
+import { useCategories } from '@/hooks/useCategories'
 import { ROUTES } from '@/lib/routes'
 import { buildBreadcrumbSchema } from '@/lib/structuredData'
-import type { ProjectCategory, ProjectFilter } from '@/types'
+import type { ProjectFilter } from '@/types'
 
-type FilterKey = 'all' | ProjectCategory
+type FilterKey = string
 
 export function ProjectsPage() {
   const { t } = useTranslation('projects')
@@ -22,15 +23,15 @@ export function ProjectsPage() {
   const [active, setActive] = useState<FilterKey>('all')
 
   const { items, isLoading, isError, retry } = useProjectItems()
-  const filterLabels = t('filters', { returnObjects: true }) as Record<FilterKey, string>
+  const { categories, getLabel } = useCategories()
 
   const filters: ProjectFilter[] = useMemo(
-    () => (Object.keys(filterLabels) as FilterKey[]).map((key) => ({ key, label: filterLabels[key] })),
-    [filterLabels],
+    () => [{ key: 'all', label: t('filters.all') }, ...categories.map((category) => ({ key: category.id, label: category.label }))],
+    [categories, t],
   )
 
   const filteredProjects = useMemo(
-    () => (active === 'all' ? items : items.filter((project) => project.category === active)),
+    () => (active === 'all' ? items : items.filter((project) => project.categoryId === active)),
     [items, active],
   )
 
@@ -60,7 +61,7 @@ export function ProjectsPage() {
           ) : isError ? (
             <EmptyState title={t('error.title')} message={t('error.message')} retryLabel={t('error.retry')} onRetry={retry} />
           ) : filteredProjects.length > 0 ? (
-            <ProjectsGrid projects={filteredProjects} categoryLabels={filterLabels} viewLabel={t('viewProject')} />
+            <ProjectsGrid projects={filteredProjects} getLabel={getLabel} viewLabel={t('viewProject')} />
           ) : (
             <EmptyState
               title={t('empty.title')}

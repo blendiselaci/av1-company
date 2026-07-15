@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { ProjectCategory } from '@prisma/client'
 import { categoryQuerySchema, optionalBooleanQuery, paginationQuerySchema } from './common.validator'
 
 export const createBeforeAfterSchema = z.object({
@@ -16,7 +15,7 @@ export const createBeforeAfterSchema = z.object({
   completionTimeDe: z.string().trim().min(1),
   completionTimeSq: z.string().trim().min(1),
   location: z.string().trim().min(1),
-  category: z.nativeEnum(ProjectCategory),
+  categoryId: z.string().min(1, 'Category is required'),
   beforeImage: z.string().url('beforeImage must be a valid URL'),
   beforeImagePublicId: z.string().nullable().optional(),
   afterImage: z.string().url('afterImage must be a valid URL'),

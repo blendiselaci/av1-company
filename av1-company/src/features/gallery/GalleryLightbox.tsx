@@ -4,8 +4,8 @@ import type { PanInfo } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { LazyImage } from '@/components/ui/LazyImage'
 import { useModalA11y } from '@/hooks/useModalA11y'
-import { CATEGORY_ICONS } from '@/lib/categoryIcons'
-import type { GalleryItem, ProjectCategory } from '@/types'
+import { CATEGORY_FALLBACK_ICON } from '@/lib/categoryIcons'
+import type { GalleryItem } from '@/types'
 
 const SWIPE_THRESHOLD = 60
 
@@ -15,7 +15,7 @@ interface LightboxImageProps {
 
 function LightboxImage({ item }: LightboxImageProps) {
   const [errored, setErrored] = useState(false)
-  const Icon = CATEGORY_ICONS[item.category]
+  const Icon = CATEGORY_FALLBACK_ICON
 
   if (errored) {
     return (
@@ -39,7 +39,7 @@ function LightboxImage({ item }: LightboxImageProps) {
 
 interface GalleryLightboxProps {
   items: GalleryItem[]
-  categoryLabels: Record<'all' | ProjectCategory, string>
+  getLabel: (categoryId: string | null | undefined) => string
   activeIndex: number | null
   onClose: () => void
   onNavigate: (direction: 1 | -1) => void
@@ -51,7 +51,7 @@ interface GalleryLightboxProps {
 
 export function GalleryLightbox({
   items,
-  categoryLabels,
+  getLabel,
   activeIndex,
   onClose,
   onNavigate,
@@ -147,7 +147,7 @@ export function GalleryLightbox({
 
       <div className="px-6 pb-8 text-center">
         <p className="text-xs font-semibold uppercase tracking-widest text-av1-green-light">
-          {categoryLabels[item.category]}
+          {getLabel(item.categoryId)}
         </p>
         <p className="mt-1 text-lg font-semibold text-white">{item.title}</p>
       </div>

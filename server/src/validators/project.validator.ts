@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { ProjectCategory } from '@prisma/client'
 import { categoryQuerySchema, optionalBooleanQuery, paginationQuerySchema } from './common.validator'
 
 const SLUG_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -12,7 +11,7 @@ export const createProjectSchema = z.object({
   descriptionEn: z.string().trim().min(1),
   descriptionDe: z.string().trim().min(1),
   descriptionSq: z.string().trim().min(1),
-  category: z.nativeEnum(ProjectCategory),
+  categoryId: z.string().min(1, 'Category is required'),
   location: z.string().trim().min(1),
   year: z.coerce.number().int().min(1900).max(2100),
   image: z.string().url('image must be a valid URL'),

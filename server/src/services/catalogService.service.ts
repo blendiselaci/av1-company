@@ -8,6 +8,7 @@ import { buildPaginationMeta, type PaginationMeta } from '../utils/apiResponse'
 import { toSkipTake } from '../utils/pagination'
 import { NotFoundError } from '../utils/AppError'
 import { optimizeImage, type ResponsiveVariants } from '../utils/cloudinary-response'
+import { slugify } from '../utils/slug'
 import type {
   AdminListServicesQuery,
   CreateServiceInput,
@@ -16,6 +17,18 @@ import type {
 } from '../validators/service.validator'
 
 export type PublicService = Service & { imageVariants?: ResponsiveVariants }
+
+async function generateUniqueSlug(base: string, excludeId?: string): Promise<string> {
+  const baseSlug = slugify(base) || 'service'
+  let slug = baseSlug
+  let suffix = 2
+  while (true) {
+    const existing = await serviceRepository.findBySlug(slug)
+    if (!existing || existing.id === excludeId) return slug
+    slug = `${baseSlug}-${suffix}`
+    suffix += 1
+  }
+}
 
 /** Public-response shaping only — admin reads/writes still see the raw stored
  *  `image`/`imagePublicId` columns untouched. `image` itself is optional, so
@@ -56,13 +69,27 @@ export async function getServiceById(id: string): Promise<Service> {
   return service
 }
 
-export function createService(input: CreateServiceInput): Promise<Service> {
-  return serviceRepository.create(input)
+export async function getPublishedServiceBySlug(slug: string): Promise<PublicService> {
+  const service = await serviceRepository.findBySlug(slug)
+  if (!service || !service.isPublished) throw new NotFoundError('Service')
+  return toPublic(service)
+}
+
+export async function createService(input: CreateServiceInput): Promise<Service> {
+  const slugBase = input.slug && input.slug.length > 0 ? input.slug : input.titleEn
+  const slug = await generateUniqueSlug(slugBase)
+  return serviceRepository.create({ ...input, slug })
 }
 
 export async function updateService(id: string, input: UpdateServiceInput): Promise<Service> {
   await getServiceById(id)
-  return serviceRepository.update({ id }, input)
+
+  let slug = input.slug
+  if (slug !== undefined) {
+    slug = slug.length > 0 ? await generateUniqueSlug(slug, id) : undefined
+  }
+
+  return serviceRepository.update({ id }, { ...input, ...(slug !== undefined ? { slug } : {}) })
 }
 
 export async function deleteService(id: string): Promise<void> {

@@ -10,10 +10,47 @@
   },
   "stats": {
     "items": [
-      { "value": 120, "suffix": "+", "label": "Completed Projects" },
-      { "value": 98, "suffix": "%", "label": "Satisfied Clients" },
-      { "value": 15, "suffix": "+", "label": "Years of Experience" },
-      { "value": 5000, "suffix": "+", "label": "m² of Transformed Space" }
+      { "value": 4.9, "suffix": "/5", "decimals": 1, "label": "Based on 99+ satisfied clients" },
+      { "value": 100, "suffix": "+", "label": "Completed Projects" },
+      { "value": 99, "suffix": "+", "label": "Satisfied Clients" },
+      { "value": 10, "suffix": "+", "label": "Years of Experience" }
+    ]
+  },
+  "servicesOffered": {
+    "eyebrow": "Our Capabilities",
+    "title": "AV1 Company Offers These Services",
+    "subtitle": "From the foundation to the finishing touch, we handle every detail of your project.",
+    "items": [
+      {
+        "icon": "pavers",
+        "title": "Concrete Paver Installation",
+        "description": "We lay concrete pavers with precision for durable yards, driveways and walkways."
+      },
+      {
+        "icon": "walls",
+        "title": "Decorative Wall Construction",
+        "description": "We build decorative walls that add character and structure to any outdoor space."
+      },
+      {
+        "icon": "fountains",
+        "title": "Stone Fountains & Natural Stone Walls",
+        "description": "We craft fountains and natural stone walls with careful, artisanal detail."
+      },
+      {
+        "icon": "grass",
+        "title": "Grass & Lawn Planting",
+        "description": "We plant and prepare quality grass for a lush, long-lasting lawn."
+      },
+      {
+        "icon": "fences",
+        "title": "PANEL 3D Fence Installation",
+        "description": "We install modern PANEL 3D fencing for lasting security and style."
+      },
+      {
+        "icon": "drainage",
+        "title": "Drainage System Installation",
+        "description": "We install drainage systems that protect your yard from water build-up."
+      }
     ]
   },
   "services": {
@@ -26,6 +63,14 @@
       "title": "Unable to load services",
       "message": "Something went wrong while loading our services. Please try again.",
       "retry": "Try Again"
+    },
+    "detail": {
+      "benefitsTitle": "Benefits",
+      "galleryTitle": "Gallery",
+      "backLabel": "All Services",
+      "notFoundTitle": "Service not found",
+      "notFoundMessage": "This service may have been removed, or the address is incorrect.",
+      "notFoundBack": "View all services"
     }
   },
   "cta": {

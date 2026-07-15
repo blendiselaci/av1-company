@@ -6,10 +6,9 @@
     "title": "Let's Talk About Your Project",
     "description": "Reach out by phone, email or the form below — our team typically responds within 24 hours with next steps and a free estimate.",
     "cards": [
-      { "id": "phone", "label": "Phone", "value": "+355 69 123 4567", "href": "tel:+355691234567" },
-      { "id": "email", "label": "Email", "value": "info@av1-company.al", "href": "mailto:info@av1-company.al" },
-      { "id": "location", "label": "Location", "value": "Rruga e Kavajës, Tirana 1001, Albania" },
-      { "id": "hours", "label": "Working Hours", "value": "Mon – Sat: 08:00 – 18:00" }
+      { "id": "phone", "label": "Phone", "value": "+383 45 644 102", "href": "tel:+38345644102" },
+      { "id": "email", "label": "Email", "value": "av1.company10@gmail.com", "href": "mailto:av1.company10@gmail.com" },
+      { "id": "facebook", "label": "Facebook", "value": "AV1 Company", "href": "https://www.facebook.com/profile.php?id=61573610664993" }
     ]
   },
   "form": {
@@ -20,11 +19,16 @@
     "service": "Service",
     "servicePlaceholder": "Select a service",
     "services": [
-      "Garden Design",
-      "Hardscaping & Paving",
-      "Pools & Relaxation Areas",
-      "Terraces & Structures",
-      "Greenery Maintenance",
+      "Paved Yards & Courtyards",
+      "Decorative Paver Walls",
+      "Natural Stone Walls",
+      "Concrete Basin Decoration",
+      "Pool Excavation",
+      "Fountains",
+      "Fencing",
+      "Outdoor Stairs",
+      "Lawn Planting",
+      "Drainage Installation",
       "Other"
     ],
     "message": "Message",
@@ -41,10 +45,5 @@
       "privacy": "You must accept the privacy policy to continue",
       "submit": "Something went wrong sending your message. Please try again."
     }
-  },
-  "map": {
-    "addressLabel": "Our Office",
-    "address": "Rruga e Kavajës, Tirana 1001, Albania",
-    "button": "Open in Google Maps"
   }
 }

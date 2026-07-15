@@ -41,7 +41,6 @@ export function BeforeAfterSection() {
                   afterImage={featured.afterImage}
                   beforeLabel={t('beforeLabel')}
                   afterLabel={t('afterLabel')}
-                  category={featured.category}
                   title={featured.title}
                 />
               </motion.div>

@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { projectsApi, videosApi } from '../../api/resources'
-import { PROJECT_CATEGORIES } from '../../types/models'
+import { useCategories } from '../../hooks/useCategories'
 import { SelectField } from '../../components/form/SelectField'
 import { SwitchField } from '../../components/form/SwitchField'
 import { LocalizedTextField } from '../../components/form/LocalizedTextField'
@@ -28,7 +28,7 @@ const formSchema = z.object({
   descriptionEn: z.string().trim().min(1, 'Required'),
   descriptionDe: z.string().trim().min(1, 'Required'),
   descriptionSq: z.string().trim().min(1, 'Required'),
-  category: z.enum(['GARDENS', 'YARDS', 'POOLS', 'TERRACES', 'PAVING']),
+  categoryId: z.string().min(1, 'Required'),
   duration: z.string().trim().min(1, 'Required (e.g. 1:45)'),
   thumbnail: mediaValueSchema,
   video: mediaValueSchema,
@@ -46,7 +46,7 @@ const DEFAULT_VALUES: FormValues = {
   descriptionEn: '',
   descriptionDe: '',
   descriptionSq: '',
-  category: 'GARDENS',
+  categoryId: '',
   duration: '',
   thumbnail: null,
   video: null,
@@ -62,6 +62,7 @@ export default function VideoFormPage() {
   const toast = useToast()
   const queryClient = useQueryClient()
   const [mediaErrors, setMediaErrors] = useState<{ thumbnail?: string; video?: string }>({})
+  const { options: categoryOptions } = useCategories()
 
   const { data: existing, isLoading } = useQuery({
     queryKey: ['videos', id],
@@ -91,7 +92,7 @@ export default function VideoFormPage() {
         descriptionEn: existing.descriptionEn,
         descriptionDe: existing.descriptionDe,
         descriptionSq: existing.descriptionSq,
-        category: existing.category,
+        categoryId: existing.categoryId ?? '',
         duration: existing.duration,
         thumbnail: { url: existing.thumbnail, publicId: existing.thumbnailPublicId },
         video: { url: existing.videoUrl, publicId: existing.videoPublicId },
@@ -111,7 +112,7 @@ export default function VideoFormPage() {
         descriptionEn: values.descriptionEn,
         descriptionDe: values.descriptionDe,
         descriptionSq: values.descriptionSq,
-        category: values.category,
+        categoryId: values.categoryId,
         duration: values.duration,
         thumbnail: values.thumbnail!.url,
         thumbnailPublicId: values.thumbnail!.publicId,
@@ -161,9 +162,10 @@ export default function VideoFormPage() {
           <SelectField
             label="Category"
             required
-            registration={register('category')}
-            error={errors.category?.message}
-            options={PROJECT_CATEGORIES.map((c) => ({ value: c, label: c }))}
+            registration={register('categoryId')}
+            error={errors.categoryId?.message}
+            options={categoryOptions}
+            placeholder="Select a category"
           />
           <TextField label="Duration" required registration={register('duration')} error={errors.duration?.message} placeholder="1:45" />
         </div>

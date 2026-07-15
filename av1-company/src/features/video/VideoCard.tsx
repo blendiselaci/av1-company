@@ -1,6 +1,7 @@
 import { memo, useState } from 'react'
 import { Film, Play } from 'lucide-react'
 import { LazyImage } from '@/components/ui/LazyImage'
+import logo from '@/assets/logo-av1-header.jpg'
 import type { VideoItem } from '@/types'
 
 interface VideoCardProps {
@@ -35,6 +36,13 @@ function VideoCardComponent({ video, categoryLabel, index, onPlay }: VideoCardPr
       )}
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/0 transition-colors duration-300 group-hover:from-black/80" />
+
+      <img
+        src={logo}
+        alt=""
+        aria-hidden="true"
+        className="absolute left-4 top-4 h-9 w-9 rounded-full object-cover shadow-lg ring-2 ring-white/40"
+      />
 
       <span className="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
         {video.duration}

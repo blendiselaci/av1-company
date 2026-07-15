@@ -6,10 +6,9 @@
     "title": "Le të Flasim për Projektin Tuaj",
     "description": "Na kontaktoni me telefon, email ose përmes formularit më poshtë — ekipi ynë përgjigjet zakonisht brenda 24 orësh me hapat e mëtejshëm dhe një vlerësim falas.",
     "cards": [
-      { "id": "phone", "label": "Telefon", "value": "+355 69 123 4567", "href": "tel:+355691234567" },
-      { "id": "email", "label": "Email", "value": "info@av1-company.al", "href": "mailto:info@av1-company.al" },
-      { "id": "location", "label": "Vendndodhja", "value": "Rruga e Kavajës, Tiranë 1001, Shqipëri" },
-      { "id": "hours", "label": "Orari i Punës", "value": "Hën – Shtu: 08:00 – 18:00" }
+      { "id": "phone", "label": "Telefon", "value": "+383 45 644 102", "href": "tel:+38345644102" },
+      { "id": "email", "label": "Email", "value": "av1.company10@gmail.com", "href": "mailto:av1.company10@gmail.com" },
+      { "id": "facebook", "label": "Facebook", "value": "AV1 Company", "href": "https://www.facebook.com/profile.php?id=61573610664993" }
     ]
   },
   "form": {
@@ -20,11 +19,16 @@
     "service": "Shërbimi",
     "servicePlaceholder": "Zgjidh një shërbim",
     "services": [
-      "Dizajn Kopshti",
-      "Shtrime dhe Punime të Jashtme",
-      "Pishina dhe Ambiente Relaksi",
-      "Terraca dhe Struktura",
-      "Mirëmbajtje Gjelbërimi",
+      "Oborr me Kubëza/Pllaka",
+      "Mur i Dekoruar me Kubëza",
+      "Mur me Gur Natyral",
+      "Dekorim i Bunarit me Beton",
+      "Hapje e Pishinës",
+      "Shatërvan",
+      "Gardh",
+      "Shkallë",
+      "Mbjellja e Barit",
+      "Montimi i Drenazhave",
       "Tjetër"
     ],
     "message": "Mesazhi",
@@ -41,10 +45,5 @@
       "privacy": "Duhet të pranoni politikën e privatësisë për të vazhduar",
       "submit": "Diçka shkoi keq gjatë dërgimit të mesazhit. Ju lutemi provoni përsëri."
     }
-  },
-  "map": {
-    "addressLabel": "Zyra Jonë",
-    "address": "Rruga e Kavajës, Tiranë 1001, Shqipëri",
-    "button": "Hap në Google Maps"
   }
 }
